@@ -15,11 +15,6 @@ exercises: 40
 - Learn more about the collection structure of NanoAOD
 :::::::::::::::::::
 
-:::::::::::::::::: keypoints
-- Physics objects are the final abstraction in the detector that can be associated to physical entities like particles.
-- NanoAOD stores physics object properties as branches of a ROOT tree, linked by common name prefixes.
-::::::::::::::::::
-
 ## Overview
 
 The **CMS experment** is a giant detector that acts like a camera that "photographs" particle collisions, allowing us to interpret their nature.
@@ -60,5 +55,8 @@ The **particle-flow (PF) algorithm** aims at reconstructing and identifying all 
 
 The PF algorithm and all its reconstruction tributaries are written in C++ and are part of the **CMSSW** software that is required to analyze any open data in the earlier AOD or MiniAOD formats. For more information about the PF algorithm you can visit a lesson from an earlier workshop: [Advanced Tools lesson](https://cms-opendata-workshop.github.io/workshop2023-advobjects/). The CMS open data from 2016 contains some data samples in the NanoAOD format that have been supplemented with particle flow information: [nanoad-pf samples](https://opendata.cern.ch/search?q=&f=experiment%3ACMS&f=file_type%3Ananoaod-pf).
 
+:::::::::::::::::: keypoints
+- Physics objects are the final abstraction in the detector that can be associated to physical entities like particles.
+- NanoAOD stores physics object properties as branches of a ROOT tree, linked by common name prefixes.
+::::::::::::::::::
 
-{% include links.md %}
