@@ -508,6 +508,92 @@ matched jet)</td>
 </tr><tr class="odd"><td>Electron_mass</td>
 <td>Float_t</td>
 <td>mass</td>
+</tr><tr class="even"><td>Electron_miniPFRelIso_all</td>
+<td>Float_t</td>
+<td>mini PF relative isolation, total (with scaled rho*EA PU
+corrections)</td>
+</tr><tr class="odd"><td>Electron_miniPFRelIso_chg</td>
+<td>Float_t</td>
+<td>mini PF relative isolation, charged component</td>
+</tr><tr class="even"><td>Electron_mvaFall17V2Iso</td>
+<td>Float_t</td>
+<td>MVA Iso ID V2 score</td>
+</tr><tr class="odd"><td>Electron_mvaFall17V2Iso_WP80</td>
+<td>Bool_t</td>
+<td>MVA Iso ID V2 WP80</td>
+</tr><tr class="even"><td>Electron_mvaFall17V2Iso_WP90</td>
+<td>Bool_t</td>
+<td>MVA Iso ID V2 WP90</td>
+</tr><tr class="odd"><td>Electron_mvaFall17V2Iso_WPL</td>
+<td>Bool_t</td>
+<td>MVA Iso ID V2 loose WP</td>
+</tr><tr class="even"><td>Electron_mvaFall17V2noIso</td>
+<td>Float_t</td>
+<td>MVA noIso ID V2 score</td>
+</tr><tr class="odd"><td>Electron_mvaFall17V2noIso_WP80</td>
+<td>Bool_t</td>
+<td>MVA noIso ID V2 WP80</td>
+</tr><tr class="even"><td>Electron_mvaFall17V2noIso_WP90</td>
+<td>Bool_t</td>
+<td>MVA noIso ID V2 WP90</td>
+</tr><tr class="odd"><td>Electron_mvaFall17V2noIso_WPL</td>
+<td>Bool_t</td>
+<td>MVA noIso ID V2 loose WP</td>
+</tr><tr class="even"><td>Electron_mvaTTH</td>
+<td>Float_t</td>
+<td>TTH MVA lepton ID score</td>
+</tr><tr class="odd"><td>Electron_pdgId</td>
+<td>Int_t</td>
+<td>PDG code assigned by the event reconstruction (not by MC truth)</td>
+</tr><tr class="even"><td>Electron_pfRelIso03_all</td>
+<td>Float_t</td>
+<td>PF relative isolation dR=0.3, total (with rho*EA PU
+corrections)</td>
+</tr><tr class="odd"><td>Electron_pfRelIso03_chg</td>
+<td>Float_t</td>
+<td>PF relative isolation dR=0.3, charged component</td>
+</tr><tr class="even"><td>Electron_phi</td>
+<td>Float_t</td>
+<td>phi</td>
+</tr><tr class="odd"><td>Electron_photonIdx</td>
+<td>Int_t</td>
+<td>(index to Photon) index of the associated photon (-1 if none)</td>
+</tr><tr class="even"><td>Electron_pt</td>
+<td>Float_t</td>
+<td>p_{T}</td>
+</tr><tr class="odd"><td>Electron_r9</td>
+<td>Float_t</td>
+<td>R9 of the supercluster, calculated with full 5x5 region</td>
+</tr><tr class="even"><td>Electron_scEtOverPt</td>
+<td>Float_t</td>
+<td>(supercluster transverse energy)/pt-1</td>
+</tr><tr class="odd"><td>Electron_seedGain</td>
+<td>UChar_t</td>
+<td>Gain of the seed crystal</td>
+</tr><tr class="even"><td>Electron_sieie</td>
+<td>Float_t</td>
+<td>sigma_IetaIeta of the supercluster, calculated with full 5x5
+region</td>
+</tr><tr class="odd"><td>Electron_sip3d</td>
+<td>Float_t</td>
+<td>3D impact parameter significance wrt first PV, in cm</td>
+</tr><tr class="even"><td>Electron_tightCharge</td>
+<td>Int_t</td>
+<td>Tight charge criteria (0:none, 1:isGsfScPixChargeConsistent,
+2:isGsfCtfScPixChargeConsistent)</td>
+</tr><tr class="odd"><td>Electron_vidNestedWPBitmap</td>
+<td>Int_t</td>
+<td>VID compressed bitmap
+(MinPtCut,GsfEleSCEtaMultiRangeCut,GsfEleDEtaInSeedCut,GsfEleDPhiInCut,GsfEleFull5x5SigmaIEtaIEtaCut,GsfEleHadronicOverEMEnergyScaledCut,GsfEleEInverseMinusPInverseCut,GsfEleRelPFIsoScaledCut,GsfEleConversionVetoCut,GsfEleMissingHitsCut),
+3 bits per cut</td>
+</tr><tr class="even"><td>Electron_vidNestedWPBitmapHEEP</td>
+<td>Int_t</td>
+<td>VID compressed bitmap
+(MinPtCut,GsfEleSCEtaMultiRangeCut,GsfEleDEtaInSeedCut,GsfEleDPhiInCut,GsfEleFull5x5SigmaIEtaIEtaWithSatCut,GsfEleFull5x5E2x5OverE5x5WithSatCut,GsfEleHadronicOverEMLinearCut,GsfEleTrkPtIsoCut,GsfEleEmHadD1IsoRhoCut,GsfEleDxyCut,GsfEleMissingHitsCut,GsfEleEcalDrivenCut),
+1 bits per cut</td>
+</tr><tr class="odd"><td>nElectron</td>
+<td>UInt_t</td>
+<td>slimmedElectrons after basic selection (pt &gt; 5 )</td>
 </tr></tbody></table></div>
 </div>
 </div>
