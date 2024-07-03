@@ -882,6 +882,581 @@ region</td>
 </div>
 </div>
 </div>
+<div class="section level3">
+<h3 id="electron-4-vector-and-track-information">Electron 4-vector and track information<a class="anchor" aria-label="anchor" href="#electron-4-vector-and-track-information"></a>
+</h3>
+<p>All CMS physics objects contain basic 4-vector information:
+transverse momentum, pseudorapidity, azimuthal angle, and mass or
+energy:</p>
+<table class="table">
+<caption>electron 4-vector branches</caption>
+<thead><tr class="header">
+<th>Object property</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Electron_eta</td>
+<td>Float_t</td>
+<td>eta</td>
+</tr>
+<tr class="even">
+<td>Electron_mass</td>
+<td>Float_t</td>
+<td>mass</td>
+</tr>
+<tr class="odd">
+<td>Electron_phi</td>
+<td>Float_t</td>
+<td>phi</td>
+</tr>
+<tr class="even">
+<td>Electron_pt</td>
+<td>Float_t</td>
+<td>p_{T}</td>
+</tr>
+</tbody>
+</table>
+<p>Most charged physics objects are also connected to tracks from the
+CMS tracking detectors, and therefore the electric charge can be
+identified from the track curvature. Electron charge can be computed
+from 3 unique algorithms, so a <code>tightCharge</code> variable exists
+to show when multiple of the charge determinations agree. Information
+from tracks provides other kinematic quantities that are common to
+multiple types of objects. Often, the most pertinent information about
+an object to access from its associated track is its <strong>impact
+parameter</strong> with respect to the primary interaction vertex. We
+can access the impact parameters in the xy-plane (<code>dxy</code> or
+<code>d0</code>) and along the beam axis (<code>dz</code>), as well as
+their respective uncertainties. There is also a 3D impact parameter
+significance that is very useful for identifying leptons that emerged
+from a heavy flavor hadron decay.</p>
+<table class="table">
+<caption>electron track-related branches</caption>
+<colgroup>
+<col width="50%">
+<col width="13%">
+<col width="36%">
+</colgroup>
+<thead><tr class="header">
+<th>Object property</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Electron_charge</td>
+<td>Int_t</td>
+<td>electric charge</td>
+</tr>
+<tr class="even">
+<td>Electron_dxy</td>
+<td>Float_t</td>
+<td>dxy (with sign) wrt first PV, in cm</td>
+</tr>
+<tr class="odd">
+<td>Electron_dxyErr</td>
+<td>Float_t</td>
+<td>dxy uncertainty, in cm</td>
+</tr>
+<tr class="even">
+<td>Electron_dz</td>
+<td>Float_t</td>
+<td>dz (with sign) wrt first PV, in cm</td>
+</tr>
+<tr class="odd">
+<td>Electron_dzErr</td>
+<td>Float_t</td>
+<td>dz uncertainty, in cm</td>
+</tr>
+<tr class="even">
+<td>Electron_sip3d</td>
+<td>Float_t</td>
+<td>3D impact parameter significance wrt first PV, in cm</td>
+</tr>
+<tr class="odd">
+<td>Electron_tightCharge</td>
+<td>Int_t</td>
+<td>Tight charge criteria (0:none, 1:isGsfScPixChargeConsistent,
+2:isGsfCtfScPixChargeConsistent)</td>
+</tr>
+</tbody>
+</table>
+<div id="callout1" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<div class="callout-inner">
+<h3 class="callout-title">Callout<a class="anchor" aria-label="anchor" href="#callout1"></a>
+</h3>
+<div class="callout-content">
+<p>Note: in the case of Photons, since they are neutral objects, they do
+not have a direct track link (though displaced track segments may appear
+from electrons or positrons produced by the photon as it transits the
+detector material). While the <code>charge</code> variable exists for
+all objects, it is not used in photon analyses.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="section level3">
+<h3 id="detector-information-for-identification">Detector information for identification<a class="anchor" aria-label="anchor" href="#detector-information-for-identification"></a>
+</h3>
+<p>The most signicant difference between a list of certain particles
+from a Monte Carlo generator and a list of the corresponding physics
+objects from CMS is likely the inherent uncertainty in the
+reconstruction. Selection of “a muon” or “an electron” for analysis
+requires algorithms designed to separate “real” objects from “fakes”.
+These are called <strong>identification</strong> algorithms.</p>
+<p>Other algorithms are designed to measure the amount of energy
+deposited near the object, to determine if it was likely produced near
+the primary interaction (typically little nearby energy), or from the
+decay of a longer-lived particle (typically a lot of nearby energy).
+These are called <strong>isolation</strong> algorithms. Many types of
+isolation algorithms exist to deal with unique physics cases!</p>
+<p>Both types of algorithms function using <strong>working
+points</strong> that are described on a spectrum from
+<strong>“loose”</strong> to <strong>“tight”</strong>. Working points
+that are “looser” tend to have a high efficiency for accepting real
+objects, but perhaps a poor rejection rate for “fake” objects. Working
+points that are “tighter” tend to have lower efficiencies for accepting
+real objects, but much better rejection rates for “fake” objects. The
+choice of working point is highly analysis dependent! Some analyses
+value efficiency over background rejection, and some analyses are the
+opposite.</p>
+<p>The <em>standard</em> identification and isolation algorithm results
+can be accessed from the physics object classes.</p>
+</div>
+<div class="section level3">
+<h3 id="multivariate-electron-identification-mva">Multivariate Electron Identification (MVA)<a class="anchor" aria-label="anchor" href="#multivariate-electron-identification-mva"></a>
+</h3>
+<p>In the Multi-variate Analysis (MVA) approach, one forms a single
+discriminator variable that is computed based on multiple parameters of
+the electron object and provides the best separation between the signal
+and backgrounds by means of multivariate analysis methods and
+statistical learning tools. One can then cut on discriminator value or
+use the distribution of the values for a shape based statistical
+analysis.</p>
+<p>There are two basic types of MVAs that are were trained by CMS for
+2016 electrons:</p>
+<ul>
+<li>
+<strong>MVA with isolation</strong>: the MVA includes standard
+particle-flow isolation as one of the variables used for training. This
+MVA is well suited for analyses considering typical prompt electrons
+that are likely to be isolated from jets or other objects.</li>
+<li>
+<strong>MVA without isolation</strong>: no isolation variables are
+included for training. This MVA is better suited for analyses in which
+the electrons might be poorly isolated from jets or other objects.</li>
+</ul>
+<p>Both MVAs were assigned working points with 80% efficiency (WP80),
+90% efficiency (WP90), and a very high efficiency (“loose”)</p>
+<table class="table">
+<caption>electron MVA ID</caption>
+<thead><tr class="header">
+<th>Object property</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Electron_mvaFall17V2Iso</td>
+<td>Float_t</td>
+<td>MVA Iso ID V2 score</td>
+</tr>
+<tr class="even">
+<td>Electron_mvaFall17V2Iso_WP80</td>
+<td>Bool_t</td>
+<td>MVA Iso ID V2 WP80</td>
+</tr>
+<tr class="odd">
+<td>Electron_mvaFall17V2Iso_WP90</td>
+<td>Bool_t</td>
+<td>MVA Iso ID V2 WP90</td>
+</tr>
+<tr class="even">
+<td>Electron_mvaFall17V2Iso_WPL</td>
+<td>Bool_t</td>
+<td>MVA Iso ID V2 loose WP</td>
+</tr>
+<tr class="odd">
+<td>Electron_mvaFall17V2noIso</td>
+<td>Float_t</td>
+<td>MVA noIso ID V2 score</td>
+</tr>
+<tr class="even">
+<td>Electron_mvaFall17V2noIso_WP80</td>
+<td>Bool_t</td>
+<td>MVA noIso ID V2 WP80</td>
+</tr>
+<tr class="odd">
+<td>Electron_mvaFall17V2noIso_WP90</td>
+<td>Bool_t</td>
+<td>MVA noIso ID V2 WP90</td>
+</tr>
+<tr class="even">
+<td>Electron_mvaFall17V2noIso_WPL</td>
+<td>Bool_t</td>
+<td>MVA noIso ID V2 loose WP</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section level3">
+<h3 id="cut-based-electron-id">Cut Based Electron ID<a class="anchor" aria-label="anchor" href="#cut-based-electron-id"></a>
+</h3>
+<p>Electron identification can also be evaluated without MVAs, using a
+set of <a href="https://github.com/cms-sw/cmssw/blob/CMSSW_10_6_X/RecoEgamma/ElectronIdentification/python/Identification/cutBasedElectronID_Fall17_94X_V2_cff.py" class="external-link">“cut-based”
+identification criteria</a>:</p>
+<table class="table">
+<caption>electron cut-based ID</caption>
+<colgroup>
+<col width="50%">
+<col width="13%">
+<col width="36%">
+</colgroup>
+<thead><tr class="header">
+<th>Object property</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Electron_cutBased</td>
+<td>Int_t</td>
+<td>cut-based ID Fall17 V2 (0:fail, 1:veto, 2:loose, 3:medium,
+4:tight)</td>
+</tr>
+<tr class="even">
+<td>Electron_cutBased_HEEP</td>
+<td>Bool_t</td>
+<td>cut-based HEEP ID</td>
+</tr>
+</tbody>
+</table>
+<p>Four standard working points are provided * Veto (average efficiency
+~95%). Use this working point for third lepton veto or counting. * Loose
+(average efficiency ~90%). Use this working point when backgrounds are
+rather low. * Medium (average efficiency ~80%). This is a good starting
+point for generic measurements involving W or Z bosons. * Tight (average
+efficiency ~70%). Use this working point for measurements where
+backgrounds are a serious problem.</p>
+<p>All of the cut-based working points include particle-flow isolation
+requirements. The <code>HEEP</code> identifier is specifically intended
+to improve efficiency for high-energy electrons with more than 100-200
+GeV of transverse momentum.</p>
+</div>
+<div class="section level3">
+<h3 id="electron-isolation">Electron isolation<a class="anchor" aria-label="anchor" href="#electron-isolation"></a>
+</h3>
+<p><strong>Isolation</strong> is computed in similar ways for all
+physics objects: search for particles in a cone around the object of
+interest and sum up their energies, subtracting off the energy deposited
+by pileup particles. This sum divided by the object of interest’s
+transverse momentum is called <strong>relative isolation</strong> and is
+the most common way to determine whether an object was produced
+“promptly” in or following the proton-proton collision (ex: electrons
+from a Z boson decay, or photons from a Higgs boson decay). Relative
+isolation values will tend to be large for particles that emerged from
+weak decays of hadrons within jets, or other similar “nonprompt”
+processes.</p>
+<p>While many of the electron identification algorithms include
+isolation, the isolation values are also available:</p>
+<table class="table">
+<caption>electron isolation</caption>
+<colgroup>
+<col width="50%">
+<col width="13%">
+<col width="36%">
+</colgroup>
+<thead><tr class="header">
+<th>Object property</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Electron_dr03EcalRecHitSumEt</td>
+<td>Float_t</td>
+<td>Non-PF Ecal isolation within a delta R cone of 0.3 with electron pt
+&gt; 35 GeV</td>
+</tr>
+<tr class="even">
+<td>Electron_dr03HcalDepth1TowerSumEt</td>
+<td>Float_t</td>
+<td>Non-PF Hcal isolation within a delta R cone of 0.3 with electron pt
+&gt; 35 GeV</td>
+</tr>
+<tr class="odd">
+<td>Electron_dr03TkSumPt</td>
+<td>Float_t</td>
+<td>Non-PF track isolation within a delta R cone of 0.3 with electron pt
+&gt; 35 GeV</td>
+</tr>
+<tr class="even">
+<td>Electron_dr03TkSumPtHEEP</td>
+<td>Float_t</td>
+<td>Non-PF track isolation within a delta R cone of 0.3 with electron pt
+&gt; 35 GeV used in HEEP ID</td>
+</tr>
+<tr class="odd">
+<td>Electron_pfRelIso03_all</td>
+<td>Float_t</td>
+<td>PF relative isolation dR=0.3, total (with rho*EA PU
+corrections)</td>
+</tr>
+<tr class="even">
+<td>Electron_pfRelIso03_chg</td>
+<td>Float_t</td>
+<td>PF relative isolation dR=0.3, charged component</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section level3">
+<h3 id="electron-cross-reference-indices">Electron cross-reference indices<a class="anchor" aria-label="anchor" href="#electron-cross-reference-indices"></a>
+</h3>
+<p>Electrons can be associated with both jets and photons based on the
+particle-flow algorithm. Since the jet and photon collections have
+independent array structures, the indices of the matched jet or photon
+is provided in the electron collection:</p>
+<table class="table">
+<caption>jet and photon index branches</caption>
+<colgroup>
+<col width="50%">
+<col width="13%">
+<col width="36%">
+</colgroup>
+<thead><tr class="header">
+<th>Object property</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Electron_jetIdx</td>
+<td>Int_t</td>
+<td>(index to Jet) index of the associated jet (-1 if none)</td>
+</tr>
+<tr class="even">
+<td>Electron_photonIdx</td>
+<td>Int_t</td>
+<td>(index to Photon) index of the associated photon (-1 if none)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section><section id="photons"><h2 class="section-heading">Photons<a class="anchor" aria-label="anchor" href="#photons"></a>
+</h2>
+<hr class="half-width">
+<p>Since photons are also primarily reconstructed as electromagnetic
+calorimeter showers, the vast majority of their reconstruction methods
+are common with electrons. Photons also have 4-vector, identification,
+and isolation information available in NanoAOD</p>
+<div id="accordionSpoiler2" class="accordion spoiler-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler2" aria-expanded="false" aria-controls="collapseSpoiler2">
+  <h3 class="accordion-header" id="headingSpoiler2">
+  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div>
+  Photon collection contents
+  </h3>
+</button>
+<div id="collapseSpoiler2" class="accordion-collapse collapse" aria-labelledby="headingSpoiler2" data-bs-parent="#accordionSpoiler2">
+<div class="accordion-body">
+<table class="table">
+<caption>photon collection branches</caption>
+<colgroup>
+<col width="50%">
+<col width="13%">
+<col width="36%">
+</colgroup>
+<thead><tr class="header">
+<th>Object property</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Photon_charge</td>
+<td>Int_t</td>
+<td>electric charge</td>
+</tr>
+<tr class="even">
+<td>Photon_cleanmask</td>
+<td>UChar_t</td>
+<td>simple cleaning mask with priority to leptons</td>
+</tr>
+<tr class="odd">
+<td>Photon_cutBased</td>
+<td>Int_t</td>
+<td>cut-based ID bitmap, Fall17V2, (0:fail, 1:loose, 2:medium,
+3:tight)</td>
+</tr>
+<tr class="even">
+<td>Photon_cutBased_Fall17V1Bitmap</td>
+<td>Int_t</td>
+<td>cut-based ID bitmap, Fall17V1, 2^(0:loose, 1:medium, 2:tight).</td>
+</tr>
+<tr class="odd">
+<td>Photon_dEscaleDown</td>
+<td>Float_t</td>
+<td>ecal energy scale shifted 1 sigma down (adding gain/stat/syst in
+quadrature)</td>
+</tr>
+<tr class="even">
+<td>Photon_dEscaleUp</td>
+<td>Float_t</td>
+<td>ecal energy scale shifted 1 sigma up (adding gain/stat/syst in
+quadrature)</td>
+</tr>
+<tr class="odd">
+<td>Photon_dEsigmaDown</td>
+<td>Float_t</td>
+<td>ecal energy smearing value shifted 1 sigma up</td>
+</tr>
+<tr class="even">
+<td>Photon_dEsigmaUp</td>
+<td>Float_t</td>
+<td>ecal energy smearing value shifted 1 sigma up</td>
+</tr>
+<tr class="odd">
+<td>Photon_eCorr</td>
+<td>Float_t</td>
+<td>ratio of the calibrated energy/miniaod energy</td>
+</tr>
+<tr class="even">
+<td>Photon_electronIdx</td>
+<td>Int_t (index to Electron)</td>
+<td>index of the associated electron (-1 if none)</td>
+</tr>
+<tr class="odd">
+<td>Photon_electronVeto</td>
+<td>Bool_t</td>
+<td>pass electron veto</td>
+</tr>
+<tr class="even">
+<td>Photon_energyErr</td>
+<td>Float_t</td>
+<td>energy error of the cluster from regression</td>
+</tr>
+<tr class="odd">
+<td>Photon_eta</td>
+<td>Float_t</td>
+<td>eta</td>
+</tr>
+<tr class="even">
+<td>Photon_hoe</td>
+<td>Float_t</td>
+<td>H over E</td>
+</tr>
+<tr class="odd">
+<td>Photon_isScEtaEB</td>
+<td>Bool_t</td>
+<td>is supercluster eta within barrel acceptance</td>
+</tr>
+<tr class="even">
+<td>Photon_isScEtaEE</td>
+<td>Bool_t</td>
+<td>is supercluster eta within endcap acceptance</td>
+</tr>
+<tr class="odd">
+<td>Photon_jetIdx</td>
+<td>Int_t</td>
+<td>(index to Jet) index of the associated jet (-1 if none)</td>
+</tr>
+<tr class="even">
+<td>Photon_mass</td>
+<td>Float_t</td>
+<td>mass</td>
+</tr>
+<tr class="odd">
+<td>Photon_mvaID</td>
+<td>Float_t</td>
+<td>MVA ID score, Fall17V2</td>
+</tr>
+<tr class="even">
+<td>Photon_mvaID_Fall17V1p1</td>
+<td>Float_t</td>
+<td>MVA ID score, Fall17V1p1</td>
+</tr>
+<tr class="odd">
+<td>Photon_mvaID_WP80</td>
+<td>Bool_t</td>
+<td>MVA ID WP80, Fall17V2</td>
+</tr>
+<tr class="even">
+<td>Photon_mvaID_WP90</td>
+<td>Bool_t</td>
+<td>MVA ID WP90, Fall17V2</td>
+</tr>
+<tr class="odd">
+<td>Photon_pdgId</td>
+<td>Int_t</td>
+<td>PDG code assigned by the event reconstruction (not by MC truth)</td>
+</tr>
+<tr class="even">
+<td>Photon_pfRelIso03_all</td>
+<td>Float_t</td>
+<td>PF relative isolation dR=0.3, total (with rho*EA PU
+corrections)</td>
+</tr>
+<tr class="odd">
+<td>Photon_pfRelIso03_chg</td>
+<td>Float_t</td>
+<td>PF relative isolation dR=0.3, charged component (with rho*EA PU
+corrections)</td>
+</tr>
+<tr class="even">
+<td>Photon_phi</td>
+<td>Float_t</td>
+<td>phi</td>
+</tr>
+<tr class="odd">
+<td>Photon_pixelSeed</td>
+<td>Bool_t</td>
+<td>has pixel seed</td>
+</tr>
+<tr class="even">
+<td>Photon_pt</td>
+<td>Float_t</td>
+<td>p_{T}</td>
+</tr>
+<tr class="odd">
+<td>Photon_r9</td>
+<td>Float_t</td>
+<td>R9 of the supercluster, calculated with full 5x5 region</td>
+</tr>
+<tr class="even">
+<td>Photon_seedGain</td>
+<td>UChar_t</td>
+<td>Gain of the seed crystal</td>
+</tr>
+<tr class="odd">
+<td>Photon_sieie</td>
+<td>Float_t</td>
+<td>sigma_IetaIeta of the supercluster, calculated with full 5x5
+region</td>
+</tr>
+<tr class="even">
+<td>Photon_vidNestedWPBitmap</td>
+<td>Int_t</td>
+<td>Fall17V2 VID compressed bitmap
+(MinPtCut,PhoSCEtaMultiRangeCut,PhoSingleTowerHadOverEmCut,PhoFull5x5SigmaIEtaIEtaCut,PhoGenericRhoPtScaledCut,PhoGenericRhoPtScaledCut,PhoGenericRhoPtScaledCut),
+2 bits per cut</td>
+</tr>
+<tr class="odd">
+<td>nPhoton</td>
+<td>UInt_t</td>
+<td>slimmedPhotons after basic selection (pt &gt; 5 )</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
