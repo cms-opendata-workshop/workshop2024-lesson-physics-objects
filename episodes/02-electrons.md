@@ -1,5 +1,5 @@
 ---
-title: "Electrons"
+title: "Electrons & Photons"
 teaching: 10
 exercises: 30
 ---
@@ -17,12 +17,6 @@ exercises: 30
 - Learn variables for electron detector-related quantities
 ::::::::
 
-::::::::::: prereq
-## Prerequisites
-
-We will be making some plots in the ROOT Docker container, `my_root`.
-
-:::::::::::
 
 ## Motivation
 
@@ -148,6 +142,8 @@ Table: electron track-related branches
 | Electron_tightCharge | Int_t | Tight charge criteria (0:none, 1:isGsfScPixChargeConsistent, 2:isGsfCtfScPixChargeConsistent) |
 
 ::::::::::::: callout
+
+## Track-based info for photons
 
 Note: in the case of Photons, since they are neutral objects, they do not have a direct track link (though displaced track segments may appear from electrons or positrons produced by the photon as it transits the detector material). While the `charge` variable exists for all objects, it is not used in photon analyses. 
 
