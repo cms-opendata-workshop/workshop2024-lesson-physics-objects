@@ -65,8 +65,8 @@ contact: 'cms-dpoa-coordinator@cern.ch' # FIXME
 episodes: 
 - 01-introduction.md
 - 02-electrons.md
-#- 03-muons.md
-#- 04-jetmet.md
+- 03-muons.md
+- 04-jetmet.md
 #- 05-btagging.md
 #- 06-jecjer.md
 
