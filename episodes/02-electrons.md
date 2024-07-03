@@ -46,6 +46,46 @@ We measure momentum and energy but also other properties of these objects that h
 
 In the pre-exercises, you learned how to find NanoAOD datasets on the Open Data Portal. One example is the [SingleElectron dataset](https://opendata.cern.ch/record/30562). The "Dataset Semantics" section has a link to the [variable list webpage](https://opendata.cern.ch/eos/opendata/cms/dataset-semantics/NanoAOD/30562/SingleElectron_doc.html). Each "collection" of objects in the NanoAOD file is linked by a common naming scheme (ex: `Electron_*`). The individual variables are shown in a table that includes the branch name, the data type, and a brief descriptive comment.
 
+::::::::::: spoiler
+## Electron collection contents
+
+Table: NanoAOD electron branches
+
+| Object property | Type | Description |
+| --------------- | ---- | ----------- |
+| Electron_charge | Int_t | electric charge |
+| Electron_cleanmask | UChar_t | simple cleaning mask with priority to leptons |
+| Electron_convVeto | Bool_t | pass conversion veto |
+| Electron_cutBased | Int_t | cut-based ID Fall17 V2 (0:fail, 1:veto, 2:loose, 3:medium, 4:tight) |
+| Electron_cutBased_HEEP | Bool_t | cut-based HEEP ID |
+| Electron_dEscaleDown | Float_t | ecal energy scale shifted 1 sigma down (adding gain/stat/syst in quadrature) |
+| Electron_dEscaleUp | Float_t | ecal energy scale shifted 1 sigma up(adding gain/stat/syst in quadrature) |
+| Electron_dEsigmaDown | Float_t | ecal energy smearing value shifted 1 sigma up |
+| Electron_dEsigmaUp | Float_t | ecal energy smearing value shifted 1 sigma up |
+| Electron_deltaEtaSC | Float_t | delta eta (SC,ele) with sign |
+| Electron_dr03EcalRecHitSumEt | Float_t | Non-PF Ecal isolation within a delta R cone of 0.3 with electron pt > 35 GeV |
+| Electron_dr03HcalDepth1TowerSumEt | Float_t | Non-PF Hcal isolation within a delta R cone of 0.3 with electron pt > 35 GeV |
+| Electron_dr03TkSumPt | Float_t | Non-PF track isolation within a delta R cone of 0.3 with electron pt > 35 GeV |
+| Electron_dr03TkSumPtHEEP | Float_t | Non-PF track isolation within a delta R cone of 0.3 with electron pt > 35 GeV used in HEEP ID |
+| Electron_dxy | Float_t | dxy (with sign) wrt first PV, in cm |
+| Electron_dxyErr | Float_t | dxy uncertainty, in cm |
+| Electron_dz | Float_t | dz (with sign) wrt first PV, in cm |
+| Electron_dzErr | Float_t | dz uncertainty, in cm |
+| Electron_eCorr | Float_t | ratio of the calibrated energy/miniaod energy |
+| Electron_eInvMinusPInv | Float_t | 1/E_SC - 1/p_trk |
+| Electron_energyErr | Float_t | energy error of the cluster-track combination |
+| Electron_eta | Float_t | eta |
+| Electron_hoe | Float_t | H over E |
+| Electron_ip3d | Float_t | 3D impact parameter wrt first PV, in cm |
+| Electron_isPFcand | Bool_t | electron is PF candidate |
+| Electron_jetIdx | Int_t | (index to Jet) index of the associated jet (-1 if none) |
+| Electron_jetNDauCharged | UChar_t | number of charged daughters of the closest jet |
+| Electron_jetPtRelv2 | Float_t | Relative momentum of the lepton with respect to the closest jet after subtracting the lepton |
+| Electron_jetRelIso | Float_t | Relative isolation in matched jet (1/ptRatio-1, pfRelIso04_all if no matched jet) |
+| Electron_lostHits | UChar_t | number of missing inner hits |
+| Electron_mass | Float_t | mass |
+
+::::::::::::::::::::::::
 
 :::::::: keypoints
 
