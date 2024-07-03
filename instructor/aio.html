@@ -289,6 +289,18 @@
 </div>
 <!--/div.accordion-flush-->
 
+<div class="accordion accordion-flush" id="accordionFlush6">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading6">
+        <a href="05-btagging.html">5. Jet flavor tagging</a>
+    </div>
+<!--/div.accordion-header-->
+        
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
                 </div>
               </div>
             </div>
@@ -569,7 +581,7 @@ the data type, and a brief descriptive comment.</p>
   Electron collection contents
   </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
 <div class="accordion-body">
 <table class="table">
 <caption>NanoAOD electron branches</caption>
@@ -1273,7 +1285,7 @@ and isolation information available in NanoAOD</p>
   Photon collection contents
   </h3>
 </button>
-<div id="collapseSpoiler2" class="accordion-collapse collapse" aria-labelledby="headingSpoiler2" data-bs-parent="#accordionSpoiler2">
+<div id="collapseSpoiler2" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler2" aria-labelledby="headingSpoiler2">
 <div class="accordion-body">
 <table class="table">
 <caption>photon collection branches</caption>
@@ -2607,7 +2619,7 @@ collection in NanoAOD:</p>
   Jet collection branches
   </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
 <div class="accordion-body">
 <table class="table">
 <caption>Jet collection branches</caption>
@@ -2967,7 +2979,7 @@ in NanoAOD:</p>
   FatJet collection branches
   </h3>
 </button>
-<div id="collapseSpoiler2" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler2" aria-labelledby="headingSpoiler2">
+<div id="collapseSpoiler2" class="accordion-collapse collapse" aria-labelledby="headingSpoiler2" data-bs-parent="#accordionSpoiler2">
 <div class="accordion-body">
 <table class="table">
 <caption>Jet collection branches</caption>
@@ -3390,6 +3402,515 @@ removed from jets</li>
 candidates</li>
 <li>Many of the variables discussed for other objects also exist for
 jets</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- 
+Place links that you need to refer to multiple times across pages here. Delete
+any links that you are not going to use. 
+ -->
+</section></section><section id="aio-05-btagging"><p>Content from <a href="05-btagging.html">Jet flavor tagging</a></p>
+<hr>
+<p>Last updated on 2024-07-03 |
+        
+        <a href="https://github.com/cms-opendata-workshop/workbench-template-md/edit/main/episodes/05-btagging.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+<div class="text-end">
+          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
+        </div>
+<div class="overview card">
+<h2 class="card-header">Overview</h2>
+<div class="row g-0">
+<div class="col-md-4">
+<div class="card-body">
+<div class="inner">
+<h3 class="card-title">Questions</h3>
+<ul>
+<li>How are b hadrons identified in CMS?</li>
+<li>How are the parent particles of large-radius jets identified in
+CMS?</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-md-8">
+<div class="card-body">
+<div class="inner bordered">
+<h3 class="card-title">Objectives</h3>
+<ul>
+<li>Understand the basics of heavy flavor tagging</li>
+<li>Learn to access tagging information in NanoAOD files</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="prerequisites" class="callout prereq">
+<div class="callout-square">
+<i class="callout-icon" data-feather="check"></i>
+</div>
+<div id="prerequisites" class="callout-inner">
+<h3 class="callout-title">Prerequisites<a class="anchor" aria-label="anchor" href="#prerequisites"></a>
+</h3>
+<div class="callout-content">
+<p>To make the plots in this section, enter your <code>my_root</code>
+docker container.</p>
+</div>
+</div>
+</div>
+<p>Jet reconstruction and identification is an important part of the
+analyses at the LHC. A jet may contain the hadronization products of any
+quark or gluon, or possibly the decay products of more massive particles
+such as W or Higgs bosons. Several “b tagging” algorithms exist to
+identify jets from the hadronization of b quarks, which have unique
+properties that distinguish them from light quark or gluon jets.</p>
+<section id="b-tagging-algorithms"><h2 class="section-heading">B Tagging Algorithms<a class="anchor" aria-label="anchor" href="#b-tagging-algorithms"></a>
+</h2>
+<hr class="half-width">
+<p>Tagging algorithms first connect the jets with good quality tracks
+that are either associated with one of the jet’s particle flow
+candidates or within a nearby cone. Both tracks and “secondary vertices”
+(track vertices from the decays of b hadrons) can be used in
+track-based, vertex-based, or “combined” tagging algorithms. The
+specific details depend upon the algorithm use. However, they all
+exploit properties of b hadrons such as:</p>
+<ul>
+<li>long lifetime,</li>
+<li>large mass,</li>
+<li>high track multiplicity,</li>
+<li>large semileptonic branching fraction,</li>
+<li>hard fragmentation fuction.</li>
+</ul>
+<p>In CMS, several b tagging algorithms have existed over time:</p>
+<ul>
+<li>Track Counting: identifies a b jet if it contains at least N tracks
+with significantly non-zero impact parameters.</li>
+<li>Jet Probability: combines information from all selected tracks in
+the jet and uses probability density functions to assign a probability
+to each track</li>
+<li>Soft Muon and Soft Electron: identifies b jets by searching for a
+lepton from a semi-leptonic b decay.</li>
+<li>Simple Secondary Vertex: reconstructs the b decay vertex and
+calculates a discriminator using related kinematic variables.</li>
+<li>Combined Secondary Vertex (CSV): exploits all known kinematic
+variables of the jets, information about track impact parameter
+significance and the secondary vertices to distinguish b jets. This
+tagger became the default CMS algorithm in Run 1 and early Run 2.</li>
+<li>
+<strong>DeepCSV</strong>: the CSV algorithm was reimagined as a deep
+neural network.</li>
+<li>
+<strong>DeepJet</strong>: this deep neural network tagger uses a
+more complex architecture than DeepCSV, and is the most powerful b
+tagging algorithm for Run 2.</li>
+</ul>
+<p>These algorithms produce a single, real number called a b tagging
+“discriminator” for each jet. The more positive the discriminator value,
+the more likely it is that this jet contained b hadrons. The DeepCSV and
+DeepJet algorithms can also identify charm-flavor jets, and DeepJet can
+even distinguish between light-quark and gluon jets.</p>
+<table class="table">
+<caption>NanoAOD b tagging discriminators</caption>
+<colgroup>
+<col width="50%">
+<col width="13%">
+<col width="36%">
+</colgroup>
+<thead><tr class="header">
+<th>Object property</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Jet_btagCSVV2</td>
+<td>Float_t</td>
+<td>pfCombinedInclusiveSecondaryVertexV2 b-tag discriminator (aka
+CSVV2)</td>
+</tr>
+<tr class="even">
+<td>Jet_btagDeepB</td>
+<td>Float_t</td>
+<td>DeepCSV b+bb tag discriminator</td>
+</tr>
+<tr class="odd">
+<td>Jet_btagDeepCvB</td>
+<td>Float_t</td>
+<td>DeepCSV c vs b+bb discriminator</td>
+</tr>
+<tr class="even">
+<td>Jet_btagDeepCvL</td>
+<td>Float_t</td>
+<td>DeepCSV c vs udsg discriminator</td>
+</tr>
+<tr class="odd">
+<td>Jet_btagDeepFlavB</td>
+<td>Float_t</td>
+<td>DeepJet b+bb+lepb tag discriminator</td>
+</tr>
+<tr class="even">
+<td>Jet_btagDeepFlavCvB</td>
+<td>Float_t</td>
+<td>DeepJet c vs b+bb+lepb discriminator</td>
+</tr>
+<tr class="odd">
+<td>Jet_btagDeepFlavCvL</td>
+<td>Float_t</td>
+<td>DeepJet c vs uds+g discriminator</td>
+</tr>
+<tr class="even">
+<td>Jet_btagDeepFlavQG</td>
+<td>Float_t</td>
+<td>DeepJet g vs uds discriminator</td>
+</tr>
+</tbody>
+</table>
+<div class="section level3">
+<h3 id="working-points">Working points<a class="anchor" aria-label="anchor" href="#working-points"></a>
+</h3>
+<p>A jet is considered “b tagged” if the discriminator value exceeds
+some threshold. Different thresholds will have different efficiencies
+for identifying true b quark jets and for mis-tagging light quark jets.
+As we saw for muons and other objects, a “loose” working point will
+allow the highest mis-tagging rate, while a “tight” working point will
+sacrifice some correct-tag efficiency to reduce mis-tagging. The DeepCSV
+and DeepJet algorithms are supported by CMS for 2016 Open Data.</p>
+<p>The supported working points for DeepCSV and DeepJet for the 2016
+Open Data are: * Loose (10% misidentification rate):
+<code>Jet_btagDeepB</code> &gt; 0.1918 , <code>Jet_btagDeepFlav</code>
+&gt; 0.0480 * Medium (1% misidentification rate):
+<code>Jet_btagDeepB</code> &gt; 0.5847, <code>Jet_btagDeepFlav</code>
+&gt; 0.2489 * Tight (0.1% misidentification rate):
+<code>Jet_btagDeepB</code> &gt; 0.8767, <code>Jet_btagDeepFlav</code>
+&gt; 0.6377</p>
+<p>The figure below shows the relationship between b jet efficiency and
+working point in DeepCSV and DeepJet:</p>
+<figure><img src="../fig/DeepB_effVsPt.PNG" alt="Figure from the DeepJet paper" class="figure mx-auto d-block"><div class="figcaption">Figure from the <a href="https://arxiv.org/pdf/2008.10519" class="external-link">DeepJet paper</a>
+</div>
+</figure>
+</div>
+</section><section id="fatjet-tagging-algorithms"><h2 class="section-heading">FatJet tagging algorithms<a class="anchor" aria-label="anchor" href="#fatjet-tagging-algorithms"></a>
+</h2>
+<hr class="half-width">
+<p>FIXME SAY WORDS HERE</p>
+<table class="table">
+<caption>FatJet branches for traditional jet substructure</caption>
+<thead><tr class="header">
+<th>Object property</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>FatJet_msoftdrop</td>
+<td>Float_t</td>
+<td>Corrected soft drop mass with PUPPI</td>
+</tr>
+<tr class="even">
+<td>FatJet_n2b1</td>
+<td>Float_t</td>
+<td>N2 with beta=1</td>
+</tr>
+<tr class="odd">
+<td>FatJet_n3b1</td>
+<td>Float_t</td>
+<td>N3 with beta=1</td>
+</tr>
+<tr class="even">
+<td>FatJet_subJetIdx1</td>
+<td>Int_t</td>
+<td>(index to Subjet) index of first subjet</td>
+</tr>
+<tr class="odd">
+<td>FatJet_subJetIdx2</td>
+<td>Int_t</td>
+<td>(index to Subjet) index of second subjet</td>
+</tr>
+<tr class="even">
+<td>FatJet_tau1</td>
+<td>Float_t</td>
+<td>Nsubjettiness (1 axis)</td>
+</tr>
+<tr class="odd">
+<td>FatJet_tau2</td>
+<td>Float_t</td>
+<td>Nsubjettiness (2 axis)</td>
+</tr>
+<tr class="even">
+<td>FatJet_tau3</td>
+<td>Float_t</td>
+<td>Nsubjettiness (3 axis)</td>
+</tr>
+<tr class="odd">
+<td>FatJet_tau4</td>
+<td>Float_t</td>
+<td>Nsubjettiness (4 axis)</td>
+</tr>
+</tbody>
+</table>
+<div id="accordionSpoiler1" class="accordion spoiler-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
+  <h3 class="accordion-header" id="headingSpoiler1">
+  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div>
+  FatJet branches for deep network taggers
+  </h3>
+</button>
+<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
+<div class="accordion-body">
+<table class="table">
+<caption>FatJet branches for deep network taggers</caption>
+<colgroup>
+<col width="50%">
+<col width="13%">
+<col width="36%">
+</colgroup>
+<thead><tr class="header">
+<th>Object property</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>FatJet_btagDDBvLV2</td>
+<td>Float_t</td>
+<td>DeepDoubleX V2(mass-decorrelated) discriminator for H(Z)-&gt;bb vs
+QCD</td>
+</tr>
+<tr class="even">
+<td>FatJet_btagDDCvBV2</td>
+<td>Float_t</td>
+<td>DeepDoubleX V2 (mass-decorrelated) discriminator for H(Z)-&gt;cc vs
+H(Z)-&gt;bb</td>
+</tr>
+<tr class="odd">
+<td>FatJet_btagDDCvLV2</td>
+<td>Float_t</td>
+<td>DeepDoubleX V2 (mass-decorrelated) discriminator for H(Z)-&gt;cc vs
+QCD</td>
+</tr>
+<tr class="even">
+<td>FatJet_btagHbb</td>
+<td>Float_t</td>
+<td>Higgs to BB tagger discriminator</td>
+</tr>
+<tr class="odd">
+<td>FatJet_deepTagMD_H4qvsQCD</td>
+<td>Float_t</td>
+<td>Mass-decorrelated DeepBoostedJet tagger H-&gt;4q vs QCD
+discriminator</td>
+</tr>
+<tr class="even">
+<td>FatJet_deepTagMD_HbbvsQCD</td>
+<td>Float_t</td>
+<td>Mass-decorrelated DeepBoostedJet tagger H-&gt;bb vs QCD
+discriminator</td>
+</tr>
+<tr class="odd">
+<td>FatJet_deepTagMD_TvsQCD</td>
+<td>Float_t</td>
+<td>Mass-decorrelated DeepBoostedJet tagger top vs QCD
+discriminator</td>
+</tr>
+<tr class="even">
+<td>FatJet_deepTagMD_WvsQCD</td>
+<td>Float_t</td>
+<td>Mass-decorrelated DeepBoostedJet tagger W vs QCD discriminator</td>
+</tr>
+<tr class="odd">
+<td>FatJet_deepTagMD_ZHbbvsQCD</td>
+<td>Float_t</td>
+<td>Mass-decorrelated DeepBoostedJet tagger Z/H-&gt;bb vs QCD
+discriminator</td>
+</tr>
+<tr class="even">
+<td>FatJet_deepTagMD_ZHccvsQCD</td>
+<td>Float_t</td>
+<td>Mass-decorrelated DeepBoostedJet tagger Z/H-&gt;cc vs QCD
+discriminator</td>
+</tr>
+<tr class="odd">
+<td>FatJet_deepTagMD_ZbbvsQCD</td>
+<td>Float_t</td>
+<td>Mass-decorrelated DeepBoostedJet tagger Z-&gt;bb vs QCD
+discriminator</td>
+</tr>
+<tr class="even">
+<td>FatJet_deepTagMD_ZvsQCD</td>
+<td>Float_t</td>
+<td>Mass-decorrelated DeepBoostedJet tagger Z vs QCD discriminator</td>
+</tr>
+<tr class="odd">
+<td>FatJet_deepTagMD_bbvsLight</td>
+<td>Float_t</td>
+<td>Mass-decorrelated DeepBoostedJet tagger Z/H/gluon-&gt;bb vs light
+flavour discriminator</td>
+</tr>
+<tr class="even">
+<td>FatJet_deepTagMD_ccvsLight</td>
+<td>Float_t</td>
+<td>Mass-decorrelated DeepBoostedJet tagger Z/H/gluon-&gt;cc vs light
+flavour discriminator</td>
+</tr>
+<tr class="odd">
+<td>FatJet_deepTag_H</td>
+<td>Float_t</td>
+<td>DeepBoostedJet tagger H(bb,cc,4q) sum</td>
+</tr>
+<tr class="even">
+<td>FatJet_deepTag_QCD</td>
+<td>Float_t</td>
+<td>DeepBoostedJet tagger QCD(bb,cc,b,c,others) sum</td>
+</tr>
+<tr class="odd">
+<td>FatJet_deepTag_QCDothers</td>
+<td>Float_t</td>
+<td>DeepBoostedJet tagger QCDothers value</td>
+</tr>
+<tr class="even">
+<td>FatJet_deepTag_TvsQCD</td>
+<td>Float_t</td>
+<td>DeepBoostedJet tagger top vs QCD discriminator</td>
+</tr>
+<tr class="odd">
+<td>FatJet_deepTag_WvsQCD</td>
+<td>Float_t</td>
+<td>DeepBoostedJet tagger W vs QCD discriminator</td>
+</tr>
+<tr class="even">
+<td>FatJet_deepTag_ZvsQCD</td>
+<td>Float_t</td>
+<td>DeepBoostedJet tagger Z vs QCD discriminator</td>
+</tr>
+<tr class="odd">
+<td>FatJet_particleNetMD_QCD</td>
+<td>Float_t</td>
+<td>Mass-decorrelated ParticleNet tagger raw QCD score</td>
+</tr>
+<tr class="even">
+<td>FatJet_particleNetMD_Xbb</td>
+<td>Float_t</td>
+<td>Mass-decorrelated ParticleNet tagger raw X-&gt;bb score. For
+X-&gt;bb vs QCD tagging, use Xbb/(Xbb+QCD)</td>
+</tr>
+<tr class="odd">
+<td>FatJet_particleNetMD_Xcc</td>
+<td>Float_t</td>
+<td>Mass-decorrelated ParticleNet tagger raw X-&gt;cc score. For
+X-&gt;cc vs QCD tagging, use Xcc/(Xcc+QCD)</td>
+</tr>
+<tr class="even">
+<td>FatJet_particleNetMD_Xqq</td>
+<td>Float_t</td>
+<td>Mass-decorrelated ParticleNet tagger raw X-&gt;qq (uds) score. For
+X-&gt;qq vs QCD tagging, use Xqq/(Xqq+QCD). For W vs QCD tagging, use
+(Xcc+Xqq)/(Xcc+Xqq+QCD)</td>
+</tr>
+<tr class="odd">
+<td>FatJet_particleNet_H4qvsQCD</td>
+<td>Float_t</td>
+<td>ParticleNet tagger H(-&gt;VV-&gt;qqqq) vs QCD discriminator</td>
+</tr>
+<tr class="even">
+<td>FatJet_particleNet_HbbvsQCD</td>
+<td>Float_t</td>
+<td>ParticleNet tagger H(-&gt;bb) vs QCD discriminator</td>
+</tr>
+<tr class="odd">
+<td>FatJet_particleNet_HccvsQCD</td>
+<td>Float_t</td>
+<td>ParticleNet tagger H(-&gt;cc) vs QCD discriminator</td>
+</tr>
+<tr class="even">
+<td>FatJet_particleNet_QCD</td>
+<td>Float_t</td>
+<td>ParticleNet tagger QCD(bb,cc,b,c,others) sum</td>
+</tr>
+<tr class="odd">
+<td>FatJet_particleNet_TvsQCD</td>
+<td>Float_t</td>
+<td>ParticleNet tagger top vs QCD discriminator</td>
+</tr>
+<tr class="even">
+<td>FatJet_particleNet_WvsQCD</td>
+<td>Float_t</td>
+<td>ParticleNet tagger W vs QCD discriminator</td>
+</tr>
+<tr class="odd">
+<td>FatJet_particleNet_ZvsQCD</td>
+<td>Float_t</td>
+<td>ParticleNet tagger Z vs QCD discriminator</td>
+</tr>
+<tr class="even">
+<td>FatJet_particleNet_mass</td>
+<td>Float_t</td>
+<td>ParticleNet mass regression</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</section><section id="tagger-scale-factors"><h2 class="section-heading">Tagger scale factors<a class="anchor" aria-label="anchor" href="#tagger-scale-factors"></a>
+</h2>
+<hr class="half-width">
+<p>Scale factors to increase or decrease the number of tagged jets in
+simulation can be applied in a number of ways, but typically involve
+weighting simulation events based on the efficiencies and scale factors
+relevant to each jet in the event.</p>
+<p>For small-radius jet b-tagging, details and usage references from Run
+1 can be found at these references. The concepts and methods for
+applying scale factors are unchanged in Run 2.</p>
+<ul>
+<li><a href="https://twiki.cern.ch/twiki/bin/view/CMSPublic/BtagRecommendation2011OpenData#Data_MC_Scale_Factors" class="external-link">Explanation</a></li>
+<li><a href="https://twiki.cern.ch/twiki/bin/view/CMSPublic/BtagRecommendation2011OpenData#Methods_to_Apply_b_Tagging_Effic" class="external-link">Examples
+of application methods</a></li>
+</ul>
+<p>The most common scale factor application method (1a) relies on 4
+pieces of information for each jet in simulation: * Tagging status: does
+this jet pass the discriminator threshold for a given working point? *
+Flavor (b, c, light): accessed using a <code>pat::Jet</code> member
+function called <code>partonFlavour()</code>. * Efficiency: measured as
+a function of momentum as in the image above. * Scale factor: accessed
+from the</p>
+<p>For large-radius jet tagging, scale factors are computed for specific
+boosted particle flavors and can be applied using similar methods as for
+b tagging.</p>
+<div id="scale-factor-application-instructions-are-coming-soon-within-2024" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<div id="scale-factor-application-instructions-are-coming-soon-within-2024" class="callout-inner">
+<h3 class="callout-title">Scale factor application instructions are coming soon! (within 2024!)<a class="anchor" aria-label="anchor" href="#scale-factor-application-instructions-are-coming-soon-within-2024"></a>
+</h3>
+<div class="callout-content">
+<p>The <a href="https://cms-opendata-guide.web.cern.ch/" class="external-link">CMS Open Data
+Guide</a> will host the scale factor data files and application
+instructions for 2015 and 2016 Open Data.</p>
+</div>
+</div>
+</div>
+<div id="keypoints1" class="callout keypoints">
+<div class="callout-square">
+<i class="callout-icon" data-feather="key"></i>
+</div>
+<div class="callout-inner">
+<h3 class="callout-title">Key Points<a class="anchor" aria-label="anchor" href="#keypoints1"></a>
+</h3>
+<div class="callout-content">
+<ul>
+<li>Tagging algorithms separate heavy flavor jets from jets produced by
+the hadronization of light quarks and gluons</li>
+<li>FatJet tagging algorithms can identify jets from massive SM
+particles</li>
+<li>Tagging algorithms produce a disriminator value for each jet that
+represents the likelihood that the jet came from a particular
+particle</li>
+<li>Each tagging algorithm has recommended ‘working points’
+(discriminator values) based on a misidentification probability for
+non-interesting jets</li>
 </ul>
 </div>
 </div>
