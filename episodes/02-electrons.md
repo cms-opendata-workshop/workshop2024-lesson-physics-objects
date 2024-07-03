@@ -17,16 +17,10 @@ exercises: 30
 - Learn variables for electron detector-related quantities
 ::::::::
 
-:::::::: keypoints
-- Quantities such as impact parameters and charge have common member functions.
-- Physics objects in CMS are reconstructed from detector signals and are never 100% certain!
-- Identification and isolation algorithms are important for reducing fake objects.
-::::::::
-
 ::::::::::: prereq
 ## Prerequisites
 
-* We will be making some plots in the ROOT Docker container, `my_root`.
+We will be making some plots in the ROOT Docker container, `my_root`.
 
 :::::::::::
 
@@ -42,7 +36,7 @@ We call photons and electrons **electromagnetic particles** because they leave m
 
 Many of the different hypothetical exotic particles are unstable and **can transform, or *decay*, into electrons**, photons, or both. Electrons and photons are also standard tools to measure better and understand the properties of already known particles.  For example, one way to find a Higgs Boson is by looking for signs of two photons, or four electrons in the debris of high energy collisions. Because electrons and photons are crucial in so many different scenarios, the physicists in the CMS collaboration make sure to do their best to reconstruct and identify these objects.
 
-![](https://cms.cern/sites/default/files/inline-images/brem.gif){width="50%"}
+![](fig/brem.gif){width="50%"}
 
 As depicted in the figure above, tracks -- from the pixel and silicon tracker systems -- as well as ECAL energy deposits are used to **identify** the passage of electrons in CMS.  Being charged, electron trajectories **curve** inside the CMS magnetic field.  Photons are similar objects but with no tracks.  Sophisticated algorithms are run in the **reconstruction** to take into account subtleties related to the identification of an electromagnetic particle.  An example is the convoluted **showering** of sub-photons and sub-electrons that can reach the ECAL due to *bremsstrahlung* and *photon conversions*.
 
@@ -55,6 +49,8 @@ In the pre-exercises, you learned how to find NanoAOD datasets on the Open Data 
 
 ::::::::::: spoiler
 ## Electron collection contents
+
+Table: NanoAOD electron branches
 
 | Object property | Type | Description |
 | --------------- | ---- | ----------- |
@@ -121,6 +117,8 @@ In the pre-exercises, you learned how to find NanoAOD datasets on the Open Data 
 
 All CMS physics objects contain basic 4-vector information: transverse momentum, pseudorapidity, azimuthal angle, and mass or energy:
 
+Table: electron 4-vector branches
+
 | Object property | Type | Description |
 | --------------- | ---- | ----------- |
 | Electron_eta | Float_t | eta |
@@ -136,6 +134,8 @@ associated track is its **impact parameter** with respect to the primary interac
 We can access the impact parameters in the xy-plane (`dxy` or `d0`) and along
 the beam axis (`dz`), as well as their respective uncertainties. There is also a 3D impact parameter significance that is
 very useful for identifying leptons that emerged from a heavy flavor hadron decay.
+
+Table: electron track-related branches
 
 | Object property | Type | Description |
 | --------------- | ---- | ----------- |
@@ -179,10 +179,12 @@ In the Multi-variate Analysis (MVA) approach, one forms a single discriminator v
 
 There are two basic types of MVAs that are were trained by CMS for 2016 electrons:
 
- * **MVA with isolation**: the MVA includes standard particle-flow isolation as one of the variables used for training. This MVA is well suited for analyses considering typical prompt electrons that are likely to be isolated from jets or other objects.
- * **MVA without isolation**: no isolation variables are included for training. This MVA is better suited for analyses in which the electrons might be poorly isolated from jets or other objects.
+* **MVA with isolation**: the MVA includes standard particle-flow isolation as one of the variables used for training. This MVA is well suited for analyses considering typical prompt electrons that are likely to be isolated from jets or other objects.
+* **MVA without isolation**: no isolation variables are included for training. This MVA is better suited for analyses in which the electrons might be poorly isolated from jets or other objects.
 
 Both MVAs were assigned working points with 80% efficiency (WP80), 90% efficiency (WP90), and a very high efficiency ("loose")
+
+Table: electron MVA ID
 
 | Object property | Type | Description |
 | --------------- | ---- | ----------- |
@@ -200,16 +202,18 @@ Both MVAs were assigned working points with 80% efficiency (WP80), 90% efficienc
 
 Electron identification can also be evaluated without MVAs, using a set of ["cut-based" identification criteria](https://github.com/cms-sw/cmssw/blob/CMSSW_10_6_X/RecoEgamma/ElectronIdentification/python/Identification/cutBasedElectronID_Fall17_94X_V2_cff.py):
 
+Table: electron cut-based ID
+
 | Object property | Type | Description |
 | --------------- | ---- | ----------- |
 | Electron_cutBased | Int_t | cut-based ID Fall17 V2 (0:fail, 1:veto, 2:loose, 3:medium, 4:tight) |
 | Electron_cutBased_HEEP | Bool_t | cut-based HEEP ID |
 
 Four standard working points are provided
- * Veto (average efficiency ~95%). Use this working point for third lepton veto or counting.
- * Loose (average efficiency ~90%). Use this working point when backgrounds are rather low.
- * Medium (average efficiency ~80%). This is a good starting point for generic measurements involving W or Z bosons.
- * Tight (average efficiency ~70%). Use this working point for measurements where backgrounds are a serious problem.
+* Veto (average efficiency ~95%). Use this working point for third lepton veto or counting.
+* Loose (average efficiency ~90%). Use this working point when backgrounds are rather low.
+* Medium (average efficiency ~80%). This is a good starting point for generic measurements involving W or Z bosons.
+* Tight (average efficiency ~70%). Use this working point for measurements where backgrounds are a serious problem.
 
 All of the cut-based working points include particle-flow isolation requirements. The `HEEP` identifier is specifically intended to improve efficiency for high-energy electrons with more than 100-200 GeV of transverse momentum. 
 
@@ -218,6 +222,8 @@ All of the cut-based working points include particle-flow isolation requirements
 **Isolation** is computed in similar ways for all physics objects: search for particles in a cone around the object of interest and sum up their energies, subtracting off the energy deposited by pileup particles. This sum divided by the object of interest's transverse momentum is called **relative isolation** and is the most common way to determine whether an object was produced "promptly" in or following the proton-proton collision (ex: electrons from a Z boson decay, or photons from a Higgs boson decay). Relative isolation values will tend to be large for particles that emerged from weak decays of hadrons within jets, or other similar "nonprompt" processes.
 
 While many of the electron identification algorithms include isolation, the isolation values are also available:
+
+Table: electron isolation
 
 | Object property | Type | Description |
 | --------------- | ---- | ----------- |
@@ -231,6 +237,8 @@ While many of the electron identification algorithms include isolation, the isol
 ### Electron cross-reference indices
 
 Electrons can be associated with both jets and photons based on the particle-flow algorithm. Since the jet and photon collections have independent array structures, the indices of the matched jet or photon is provided in the electron collection:
+
+Table: jet and photon index branches
 
 | Object property | Type | Description |
 | --------------- | ---- | ----------- |
@@ -246,6 +254,8 @@ Photons also have 4-vector, identification, and isolation information available 
 :::::::::::::::::::: spoiler
 
 ## Photon collection contents
+
+Table: photon collection branches
 
 | Object property | Type | Description |
 | --------------- | ---- | ----------- |
@@ -283,3 +293,10 @@ Photons also have 4-vector, identification, and isolation information available 
 | Photon_vidNestedWPBitmap | Int_t | Fall17V2 VID compressed bitmap (MinPtCut,PhoSCEtaMultiRangeCut,PhoSingleTowerHadOverEmCut,PhoFull5x5SigmaIEtaIEtaCut,PhoGenericRhoPtScaledCut,PhoGenericRhoPtScaledCut,PhoGenericRhoPtScaledCut), 2 bits per cut |
 | nPhoton | UInt_t | slimmedPhotons after basic selection (pt > 5 ) |
 :::::::::::::::::::::
+
+:::::::: keypoints
+- Quantities such as impact parameters and charge have common member functions.
+- Physics objects in CMS are reconstructed from detector signals and are never 100% certain!
+- Identification and isolation algorithms are important for reducing fake objects.
+::::::::
+
