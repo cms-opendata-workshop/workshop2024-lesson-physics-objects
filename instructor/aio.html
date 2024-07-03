@@ -256,7 +256,7 @@
 <div class="accordion accordion-flush" id="accordionFlush3">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading3">
-        <a href="02-electrons.html">2. Electrons</a>
+        <a href="02-electrons.html">2. Electrons &amp; Photons</a>
     </div>
 <!--/div.accordion-header-->
         
@@ -358,23 +358,6 @@ their reconstruction</li>
 </div>
 </div>
 </div>
-<div id="keypoints1" class="callout keypoints">
-<div class="callout-square">
-<i class="callout-icon" data-feather="key"></i>
-</div>
-<div class="callout-inner">
-<h3 class="callout-title">Key Points<a class="anchor" aria-label="anchor" href="#keypoints1"></a>
-</h3>
-<div class="callout-content">
-<ul>
-<li>Physics objects are the final abstraction in the detector that can
-be associated to physical entities like particles.</li>
-<li>NanoAOD stores physics object properties as branches of a ROOT tree,
-linked by common name prefixes.</li>
-</ul>
-</div>
-</div>
-</div>
 <section id="overview"><h2 class="section-heading">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
 </h2>
 <hr class="half-width">
@@ -442,12 +425,28 @@ Tools lesson</a>. The CMS open data from 2016 contains some data samples
 in the NanoAOD format that have been supplemented with particle flow
 information: <a href="https://opendata.cern.ch/search?q=&amp;f=experiment%3ACMS&amp;f=file_type%3Ananoaod-pf" class="external-link">nanoad-pf
 samples</a>.</p>
-<p>{% include links.md %}</p>
+<div id="keypoints1" class="callout keypoints">
+<div class="callout-square">
+<i class="callout-icon" data-feather="key"></i>
+</div>
+<div class="callout-inner">
+<h3 class="callout-title">Key Points<a class="anchor" aria-label="anchor" href="#keypoints1"></a>
+</h3>
+<div class="callout-content">
+<ul>
+<li>Physics objects are the final abstraction in the detector that can
+be associated to physical entities like particles.</li>
+<li>NanoAOD stores physics object properties as branches of a ROOT tree,
+linked by common name prefixes.</li>
+</ul>
+</div>
+</div>
+</div>
 <!-- 
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use. 
  -->
-</section></section><section id="aio-02-electrons"><p>Content from <a href="02-electrons.html">Electrons</a></p>
+</section></section><section id="aio-02-electrons"><p>Content from <a href="02-electrons.html">Electrons &amp; Photons</a></p>
 <hr>
 <p>Last updated on 2024-07-03 |
         
@@ -484,19 +483,6 @@ quantities</li>
 </ul>
 </div>
 </div>
-</div>
-</div>
-</div>
-<div id="prerequisites" class="callout prereq">
-<div class="callout-square">
-<i class="callout-icon" data-feather="check"></i>
-</div>
-<div id="prerequisites" class="callout-inner">
-<h3 class="callout-title">Prerequisites<a class="anchor" aria-label="anchor" href="#prerequisites"></a>
-</h3>
-<div class="callout-content">
-<p>We will be making some plots in the ROOT Docker container,
-<code>my_root</code>.</p>
 </div>
 </div>
 </div>
@@ -983,12 +969,12 @@ from a heavy flavor hadron decay.</p>
 </tr>
 </tbody>
 </table>
-<div id="callout1" class="callout">
+<div id="track-based-info-for-photons" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div class="callout-inner">
-<h3 class="callout-title">Callout<a class="anchor" aria-label="anchor" href="#callout1"></a>
+<div id="track-based-info-for-photons" class="callout-inner">
+<h3 class="callout-title">Track-based info for photons<a class="anchor" aria-label="anchor" href="#track-based-info-for-photons"></a>
 </h3>
 <div class="callout-content">
 <p>Note: in the case of Photons, since they are neutral objects, they do
