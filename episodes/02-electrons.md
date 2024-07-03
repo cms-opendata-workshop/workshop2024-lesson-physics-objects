@@ -112,46 +112,6 @@ Table: NanoAOD electron branches
 | nElectron | UInt_t | slimmedElectrons after basic selection (pt > 5 ) |
 :::::::::::::::::::::
 
-### Electron 4-vector and track information
-
-All CMS physics objects contain basic 4-vector information: transverse momentum, pseudorapidity, azimuthal angle, and mass or energy:
-
-Table: electron 4-vector branches
-
-| Object property | Type | Description |
-| --------------- | ---- | ----------- |
-| Electron_eta | Float_t | eta |
-| Electron_mass | Float_t | mass |
-| Electron_phi | Float_t | phi |
-| Electron_pt | Float_t | p_{T} |
-
-Most charged physics objects are also connected to tracks from the CMS tracking detectors, and therefore the electric charge can be identified from the track curvature.
-Electron charge can be computed from 3 unique algorithms, so a `tightCharge` variable exists to show when multiple of the charge determinations agree. 
-Information from tracks provides other kinematic quantities that are common to multiple types of objects.
-Often, the most pertinent information about an object to access from its
-associated track is its **impact parameter** with respect to the primary interaction vertex.
-We can access the impact parameters in the xy-plane (`dxy` or `d0`) and along
-the beam axis (`dz`), as well as their respective uncertainties. There is also a 3D impact parameter significance that is
-very useful for identifying leptons that emerged from a heavy flavor hadron decay.
-
-Table: electron track-related branches
-
-| Object property | Type | Description |
-| --------------- | ---- | ----------- |
-| Electron_charge | Int_t | electric charge |
-| Electron_dxy | Float_t | dxy (with sign) wrt first PV, in cm |
-| Electron_dxyErr | Float_t | dxy uncertainty, in cm |
-| Electron_dz | Float_t | dz (with sign) wrt first PV, in cm |
-| Electron_dzErr | Float_t | dz uncertainty, in cm |
-| Electron_sip3d | Float_t | 3D impact parameter significance wrt first PV, in cm |
-| Electron_tightCharge | Int_t | Tight charge criteria (0:none, 1:isGsfScPixChargeConsistent, 2:isGsfCtfScPixChargeConsistent) |
-
-::::::::::::: callout
-
-Note: in the case of Photons, since they are neutral objects, they do not have a direct track link (though displaced track segments may appear from electrons or positrons produced by the photon as it transits the detector material). While the `charge` variable exists for all objects, it is not used in photon analyses. 
-
-:::::::::::::
-
 
 :::::::: keypoints
 - Quantities such as impact parameters and charge have common member functions.
