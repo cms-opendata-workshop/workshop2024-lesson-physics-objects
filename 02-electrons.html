@@ -392,6 +392,126 @@ list webpage</a>. Each “collection” of objects in the NanoAOD file is
 linked by a common naming scheme (ex: <code>Electron_*</code>). The
 individual variables are shown in a table that includes the branch name,
 the data type, and a brief descriptive comment.</p>
+<div id="accordionSpoiler1" class="accordion spoiler-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
+  <h3 class="accordion-header" id="headingSpoiler1">
+  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div>
+  Electron collection contents
+  </h3>
+</button>
+<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
+<div class="accordion-body">
+<table class="table"><caption>NanoAOD electron branches</caption>
+<colgroup><col width="50%"><col width="13%"><col width="36%"></colgroup><thead><tr class="header"><th>Object property</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead><tbody><tr class="odd"><td>Electron_charge</td>
+<td>Int_t</td>
+<td>electric charge</td>
+</tr><tr class="even"><td>Electron_cleanmask</td>
+<td>UChar_t</td>
+<td>simple cleaning mask with priority to leptons</td>
+</tr><tr class="odd"><td>Electron_convVeto</td>
+<td>Bool_t</td>
+<td>pass conversion veto</td>
+</tr><tr class="even"><td>Electron_cutBased</td>
+<td>Int_t</td>
+<td>cut-based ID Fall17 V2 (0:fail, 1:veto, 2:loose, 3:medium,
+4:tight)</td>
+</tr><tr class="odd"><td>Electron_cutBased_HEEP</td>
+<td>Bool_t</td>
+<td>cut-based HEEP ID</td>
+</tr><tr class="even"><td>Electron_dEscaleDown</td>
+<td>Float_t</td>
+<td>ecal energy scale shifted 1 sigma down (adding gain/stat/syst in
+quadrature)</td>
+</tr><tr class="odd"><td>Electron_dEscaleUp</td>
+<td>Float_t</td>
+<td>ecal energy scale shifted 1 sigma up(adding gain/stat/syst in
+quadrature)</td>
+</tr><tr class="even"><td>Electron_dEsigmaDown</td>
+<td>Float_t</td>
+<td>ecal energy smearing value shifted 1 sigma up</td>
+</tr><tr class="odd"><td>Electron_dEsigmaUp</td>
+<td>Float_t</td>
+<td>ecal energy smearing value shifted 1 sigma up</td>
+</tr><tr class="even"><td>Electron_deltaEtaSC</td>
+<td>Float_t</td>
+<td>delta eta (SC,ele) with sign</td>
+</tr><tr class="odd"><td>Electron_dr03EcalRecHitSumEt</td>
+<td>Float_t</td>
+<td>Non-PF Ecal isolation within a delta R cone of 0.3 with electron pt
+&gt; 35 GeV</td>
+</tr><tr class="even"><td>Electron_dr03HcalDepth1TowerSumEt</td>
+<td>Float_t</td>
+<td>Non-PF Hcal isolation within a delta R cone of 0.3 with electron pt
+&gt; 35 GeV</td>
+</tr><tr class="odd"><td>Electron_dr03TkSumPt</td>
+<td>Float_t</td>
+<td>Non-PF track isolation within a delta R cone of 0.3 with electron pt
+&gt; 35 GeV</td>
+</tr><tr class="even"><td>Electron_dr03TkSumPtHEEP</td>
+<td>Float_t</td>
+<td>Non-PF track isolation within a delta R cone of 0.3 with electron pt
+&gt; 35 GeV used in HEEP ID</td>
+</tr><tr class="odd"><td>Electron_dxy</td>
+<td>Float_t</td>
+<td>dxy (with sign) wrt first PV, in cm</td>
+</tr><tr class="even"><td>Electron_dxyErr</td>
+<td>Float_t</td>
+<td>dxy uncertainty, in cm</td>
+</tr><tr class="odd"><td>Electron_dz</td>
+<td>Float_t</td>
+<td>dz (with sign) wrt first PV, in cm</td>
+</tr><tr class="even"><td>Electron_dzErr</td>
+<td>Float_t</td>
+<td>dz uncertainty, in cm</td>
+</tr><tr class="odd"><td>Electron_eCorr</td>
+<td>Float_t</td>
+<td>ratio of the calibrated energy/miniaod energy</td>
+</tr><tr class="even"><td>Electron_eInvMinusPInv</td>
+<td>Float_t</td>
+<td>1/E_SC - 1/p_trk</td>
+</tr><tr class="odd"><td>Electron_energyErr</td>
+<td>Float_t</td>
+<td>energy error of the cluster-track combination</td>
+</tr><tr class="even"><td>Electron_eta</td>
+<td>Float_t</td>
+<td>eta</td>
+</tr><tr class="odd"><td>Electron_hoe</td>
+<td>Float_t</td>
+<td>H over E</td>
+</tr><tr class="even"><td>Electron_ip3d</td>
+<td>Float_t</td>
+<td>3D impact parameter wrt first PV, in cm</td>
+</tr><tr class="odd"><td>Electron_isPFcand</td>
+<td>Bool_t</td>
+<td>electron is PF candidate</td>
+</tr><tr class="even"><td>Electron_jetIdx</td>
+<td>Int_t</td>
+<td>(index to Jet) index of the associated jet (-1 if none)</td>
+</tr><tr class="odd"><td>Electron_jetNDauCharged</td>
+<td>UChar_t</td>
+<td>number of charged daughters of the closest jet</td>
+</tr><tr class="even"><td>Electron_jetPtRelv2</td>
+<td>Float_t</td>
+<td>Relative momentum of the lepton with respect to the closest jet
+after subtracting the lepton</td>
+</tr><tr class="odd"><td>Electron_jetRelIso</td>
+<td>Float_t</td>
+<td>Relative isolation in matched jet (1/ptRatio-1, pfRelIso04_all if no
+matched jet)</td>
+</tr><tr class="even"><td>Electron_lostHits</td>
+<td>UChar_t</td>
+<td>number of missing inner hits</td>
+</tr><tr class="odd"><td>Electron_mass</td>
+<td>Float_t</td>
+<td>mass</td>
+</tr></tbody></table></div>
+</div>
+</div>
+</div>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
