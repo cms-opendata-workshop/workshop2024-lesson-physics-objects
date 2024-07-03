@@ -84,6 +84,32 @@ Table: NanoAOD electron branches
 | Electron_jetRelIso | Float_t | Relative isolation in matched jet (1/ptRatio-1, pfRelIso04_all if no matched jet) |
 | Electron_lostHits | UChar_t | number of missing inner hits |
 | Electron_mass | Float_t | mass |
+| Electron_miniPFRelIso_all | Float_t | mini PF relative isolation, total (with scaled rho*EA PU corrections) |
+| Electron_miniPFRelIso_chg | Float_t | mini PF relative isolation, charged component |
+| Electron_mvaFall17V2Iso | Float_t | MVA Iso ID V2 score |
+| Electron_mvaFall17V2Iso_WP80 | Bool_t | MVA Iso ID V2 WP80 |
+| Electron_mvaFall17V2Iso_WP90 | Bool_t | MVA Iso ID V2 WP90 |
+| Electron_mvaFall17V2Iso_WPL | Bool_t | MVA Iso ID V2 loose WP |
+| Electron_mvaFall17V2noIso | Float_t | MVA noIso ID V2 score |
+| Electron_mvaFall17V2noIso_WP80 | Bool_t | MVA noIso ID V2 WP80 |
+| Electron_mvaFall17V2noIso_WP90 | Bool_t | MVA noIso ID V2 WP90 |
+| Electron_mvaFall17V2noIso_WPL | Bool_t | MVA noIso ID V2 loose WP |
+| Electron_mvaTTH | Float_t | TTH MVA lepton ID score |
+| Electron_pdgId | Int_t | PDG code assigned by the event reconstruction (not by MC truth) |
+| Electron_pfRelIso03_all | Float_t | PF relative isolation dR=0.3, total (with rho*EA PU corrections) |
+| Electron_pfRelIso03_chg | Float_t | PF relative isolation dR=0.3, charged component |
+| Electron_phi | Float_t | phi |
+| Electron_photonIdx | Int_t | (index to Photon) index of the associated photon (-1 if none) |
+| Electron_pt | Float_t | p_{T} |
+| Electron_r9 | Float_t | R9 of the supercluster, calculated with full 5x5 region |
+| Electron_scEtOverPt | Float_t | (supercluster transverse energy)/pt-1 |
+| Electron_seedGain | UChar_t | Gain of the seed crystal |
+| Electron_sieie | Float_t | sigma_IetaIeta of the supercluster, calculated with full 5x5 region |
+| Electron_sip3d | Float_t | 3D impact parameter significance wrt first PV, in cm |
+| Electron_tightCharge | Int_t | Tight charge criteria (0:none, 1:isGsfScPixChargeConsistent, 2:isGsfCtfScPixChargeConsistent) |
+| Electron_vidNestedWPBitmap | Int_t | VID compressed bitmap (MinPtCut,GsfEleSCEtaMultiRangeCut,GsfEleDEtaInSeedCut,GsfEleDPhiInCut,GsfEleFull5x5SigmaIEtaIEtaCut,GsfEleHadronicOverEMEnergyScaledCut,GsfEleEInverseMinusPInverseCut,GsfEleRelPFIsoScaledCut,GsfEleConversionVetoCut,GsfEleMissingHitsCut), 3 bits per cut |
+| Electron_vidNestedWPBitmapHEEP | Int_t | VID compressed bitmap (MinPtCut,GsfEleSCEtaMultiRangeCut,GsfEleDEtaInSeedCut,GsfEleDPhiInCut,GsfEleFull5x5SigmaIEtaIEtaWithSatCut,GsfEleFull5x5E2x5OverE5x5WithSatCut,GsfEleHadronicOverEMLinearCut,GsfEleTrkPtIsoCut,GsfEleEmHadD1IsoRhoCut,GsfEleDxyCut,GsfEleMissingHitsCut,GsfEleEcalDrivenCut), 1 bits per cut |
+| nElectron | UInt_t | slimmedElectrons after basic selection (pt > 5 ) |
 
 ::::::::::::::::::::::::
 
