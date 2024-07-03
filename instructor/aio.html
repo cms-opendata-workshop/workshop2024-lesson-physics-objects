@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<title>Lesson Title: All in One View</title>
+<title>CMS Physics Objects: All in One View</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="../assets/themetoggle.js"></script><link rel="stylesheet" type="text/css" href="../assets/styles.css">
 <script src="../assets/scripts.js" type="text/javascript"></script><!-- mathjax --><script type="text/x-mathjax-config">
@@ -34,13 +34,13 @@
   <div class="container-fluid top-nav-container">
     <div class="col-md-8">
       <div class="large-logo">
-        <img id="dpoa-logo" alt="CMS DPOA logo" src="../assets/images/dpoa-logo.png"><span class="badge text-bg-danger">
-          <abbr title="This lesson is in the pre-alpha phase, which means that it is in early development, but has not yet been taught.">
-            <a href="https://cdh.carpentries.org/the-lesson-life-cycle.html#early-development-pre-alpha-through-alpha" class="external-link alert-link">
-              <i aria-hidden="true" class="icon" data-feather="alert-octagon" style="border-radius: 5px"></i>
-              Pre-Alpha
+        <img id="dpoa-logo" alt="CMS DPOA logo" src="../assets/images/dpoa-logo.png"><span class="badge text-bg-info">
+          <abbr title="This lesson is in the beta phase, which means that it is ready for teaching by instructors outside of the original author team.">
+            <a href="https://cdh.carpentries.org/the-lesson-life-cycle.html#polishing-beta-stage" class="external-link alert-link">
+              <i aria-hidden="true" class="icon" data-feather="alert-circle" style="border-radius: 5px"></i>
+              Beta
             </a>
-            <span class="visually-hidden">This lesson is in the pre-alpha phase, which means that it is in early development, but has not yet been taught.</span>
+            <span class="visually-hidden">This lesson is in the beta phase, which means that it is ready for teaching by instructors outside of the original author team.</span>
           </abbr>
         </span>
         
@@ -94,7 +94,7 @@
       <img class="small-logo" alt="CMS DPOA small logo" src="../assets/images/dpoa-logo-sm.png">
 </div>
     <div class="lesson-title-md">
-      Lesson Title
+      CMS Physics Objects
     </div>
     <div class="search-icon-sm">
       <!-- TODO: do not show until we have search
@@ -105,7 +105,7 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 <li class="nav-item">
           <span class="lesson-title">
-            Lesson Title
+            CMS Physics Objects
           </span>
         </li>
         <li class="nav-item">
@@ -123,7 +123,7 @@
           </button>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 <hr>
-<li><a class="dropdown-item" href="reference.html">Reference</a></li>
+<li><a class="dropdown-item" href="reference.html">Glossary</a></li>
           </ul>
 </li>
       </ul>
@@ -142,7 +142,7 @@
   </div>
 <!--/div.container-fluid -->
 </nav><div class="col-md-12 mobile-title">
-  Lesson Title
+  CMS Physics Objects
 </div>
 
 <aside class="col-md-12 lesson-progress"><div style="width: %" class="percentage">
@@ -244,7 +244,19 @@
 <div class="accordion accordion-flush" id="accordionFlush2">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading2">
-        <a href="introduction.html">1. Using Markdown</a>
+        <a href="01-introduction.html">1. Intro to CMS Physics Objects</a>
+    </div>
+<!--/div.accordion-header-->
+        
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush3">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading3">
+        <a href="02-electrons.html">2. Electrons</a>
     </div>
 <!--/div.accordion-header-->
         
@@ -278,7 +290,7 @@
                         <a href="../instructor/images.html">Extract All Images</a>
                       </li>
                       <hr>
-<li><a class="dropdown-item" href="reference.html">Reference</a></li>
+<li><a class="dropdown-item" href="reference.html">Glossary</a></li>
                     </ul>
 </div>
                 </div>
@@ -308,12 +320,12 @@
     <main id="main-content" class="main-content"><div class="container lesson-content">
         
         
-<section id="aio-introduction"><p>Content from <a href="introduction.html">Using Markdown</a></p>
+<section id="aio-01-introduction"><p>Content from <a href="01-introduction.html">Intro to CMS Physics Objects</a></p>
 <hr>
-<p>Last updated on 2024-06-19 |
+<p>Last updated on 2024-07-03 |
         
-        <a href="https://github.com/cms-opendata-workshop/workbench-template-md/edit/main/episodes/introduction.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
-<p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 12 minutes</p>
+        <a href="https://github.com/cms-opendata-workshop/workbench-template-md/edit/main/episodes/01-introduction.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+<p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 60 minutes</p>
 <div class="text-end">
           <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
         </div>
@@ -325,8 +337,9 @@
 <div class="inner">
 <h3 class="card-title">Questions</h3>
 <ul>
-<li>How do you write a lesson using Markdown and
-<a href="https://carpentries.github.io/sandpaper/" class="external-link">sandpaper</a>?</li>
+<li>What do we call physics objects in CMS?</li>
+<li>How are physics objects reconstructed?</li>
+<li>How are physics objects represented in NanoAOD?</li>
 </ul>
 </div>
 </div>
@@ -336,141 +349,15 @@
 <div class="inner bordered">
 <h3 class="card-title">Objectives</h3>
 <ul>
-<li>Explain how to use markdown with The Carpentries Workbench</li>
-<li>Demonstrate how to include pieces of code, figures, and nested
-challenge blocks</li>
+<li>Learn about the different physics objects in CMS and get briefed on
+their reconstruction</li>
+<li>Learn more about the collection structure of NanoAOD</li>
 </ul>
 </div>
 </div>
 </div>
 </div>
 </div>
-<section id="introduction"><h2 class="section-heading">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
-</h2>
-<hr class="half-width">
-<p>This is a lesson created via The Carpentries Workbench. It is written
-in <a href="https://pandoc.org/MANUAL.txt" class="external-link">Pandoc-flavored Markdown</a>
-for static files and <a href="https://rmarkdown.rstudio.com/" class="external-link">R
-Markdown</a> for dynamic files that can render code into output. Please
-refer to the <a href="https://carpentries.github.io/sandpaper-docs/" class="external-link">Introduction to The
-Carpentries Workbench</a> for full documentation.</p>
-<p>What you need to know is that there are three sections required for a
-valid Carpentries lesson:</p>
-<ol style="list-style-type: decimal">
-<li>
-<code>questions</code> are displayed at the beginning of the episode
-to prime the learner for the content.</li>
-<li>
-<code>objectives</code> are the learning objectives for an episode
-displayed with the questions.</li>
-<li>
-<code>keypoints</code> are displayed at the end of the episode to
-reinforce the objectives.</li>
-</ol>
-<div id="accordionInstructor1" class="accordion instructor-note accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor1" aria-expanded="false" aria-controls="collapseInstructor1">
-  <h3 class="accordion-header" id="headingInstructor1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div> Instructor Note </h3>
-</button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
-<div class="accordion-body">
-<p>Inline instructor notes can help inform instructors of timing
-challenges associated with the lessons. They appear in the “Instructor
-View”</p>
-</div>
-</div>
-</div>
-</div>
-<div id="challenge-1-can-you-do-it" class="callout challenge">
-<div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
-</div>
-<div id="challenge-1-can-you-do-it" class="callout-inner">
-<h3 class="callout-title">Challenge 1: Can you do it?<a class="anchor" aria-label="anchor" href="#challenge-1-can-you-do-it"></a>
-</h3>
-<div class="callout-content">
-<p>What is the output of this command?</p>
-<div class="codewrapper sourceCode" id="cb1">
-<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">paste</span><span class="op">(</span><span class="st">"This"</span>, <span class="st">"new"</span>, <span class="st">"lesson"</span>, <span class="st">"looks"</span>, <span class="st">"good"</span><span class="op">)</span></span></code></pre>
-</div>
-</div>
-</div>
-</div>
-<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
-  <h4 class="accordion-header" id="headingSolution1"> Output </h4>
-</button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
-<div class="accordion-body">
-<div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="output" tabindex="0"><code>[1] "This new lesson looks good"</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div id="challenge-2-how-do-you-nest-solutions-within-challenge-blocks" class="callout challenge">
-<div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
-</div>
-<div id="challenge-2-how-do-you-nest-solutions-within-challenge-blocks" class="callout-inner">
-<h3 class="callout-title">Challenge 2: how do you nest solutions within challenge blocks?<a class="anchor" aria-label="anchor" href="#challenge-2-how-do-you-nest-solutions-within-challenge-blocks"></a>
-</h3>
-<div class="callout-content">
-
-</div>
-</div>
-</div>
-<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
-  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
-</button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
-<div class="accordion-body">
-<p>You can add a line with at least three colons and a
-<code>solution</code> tag.</p>
-</div>
-</div>
-</div>
-</div>
-</section><section id="figures"><h2 class="section-heading">Figures<a class="anchor" aria-label="anchor" href="#figures"></a>
-</h2>
-<hr class="half-width">
-<p>You can use standard markdown for static figures with the following
-syntax:</p>
-<p><code>![optional caption that appears below the figure](figure url){alt='alt text for accessibility purposes'}</code></p>
-<figure><img src="https://raw.githubusercontent.com/carpentries/logo/master/Badge_Carpentries.svg" alt="Blue Carpentries hex person logo with no text." class="figure mx-auto d-block"><div class="figcaption">You belong in The Carpentries!</div>
-</figure><div id="callout1" class="callout">
-<div class="callout-square">
-<i class="callout-icon" data-feather="bell"></i>
-</div>
-<div class="callout-inner">
-<h3 class="callout-title">Callout<a class="anchor" aria-label="anchor" href="#callout1"></a>
-</h3>
-<div class="callout-content">
-<p>Callout sections can highlight information.</p>
-<p>They are sometimes used to emphasise particularly important points
-but are also used in some lessons to present “asides”: content that is
-not central to the narrative of the lesson, e.g. by providing the answer
-to a commonly-asked question.</p>
-</div>
-</div>
-</div>
-</section><section id="math"><h2 class="section-heading">Math<a class="anchor" aria-label="anchor" href="#math"></a>
-</h2>
-<hr class="half-width">
-<p>One of our episodes contains <span class="math inline">\(\LaTeX\)</span> equations when describing how to
-create dynamic reports with {knitr}, so we now use mathjax to describe
-this:</p>
-<p><code>$\alpha = \dfrac{1}{(1 - \beta)^2}$</code> becomes: <span class="math inline">\(\alpha = \dfrac{1}{(1 - \beta)^2}\)</span></p>
-<p>Cool, right?</p>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
@@ -480,14 +367,205 @@ this:</p>
 </h3>
 <div class="callout-content">
 <ul>
-<li>Use <code>.md</code> files for episodes when you want static
-content</li>
-<li>Use <code>.Rmd</code> files for episodes when you need to generate
-output</li>
-<li>Run <code>sandpaper::check_lesson()</code> to identify any issues
-with your lesson</li>
-<li>Run <code>sandpaper::build_lesson()</code> to preview your lesson
-locally</li>
+<li>Physics objects are the final abstraction in the detector that can
+be associated to physical entities like particles.</li>
+<li>NanoAOD stores physics object properties as branches of a ROOT tree,
+linked by common name prefixes.</li>
+</ul>
+</div>
+</div>
+</div>
+<section id="overview"><h2 class="section-heading">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
+</h2>
+<hr class="half-width">
+<p>The <strong>CMS experment</strong> is a giant detector that acts like
+a camera that “photographs” particle collisions, allowing us to
+interpret their nature.</p>
+<p>Certainly, we cannot directly observe all the particles created in
+the collisions because some of them decay very quickly or simply do not
+interact with our detector. However, <em>we can infer their
+presence</em>. If they decay to other stable particles and interact with
+the apparatus, they leave signals in the CMS subdetectors. These signals
+are used to reconstruct the decay products or infer their presence; we
+call these, <strong>physics objects</strong>.</p>
+<p>Physics objects are built with the information collected by the
+sensors of the CMS detector. Take a look at the CMS experiment in the
+image below. This is a good recent <a href="https://youtu.be/6gfvGTCWXaw" class="external-link">video</a> that you can watch later
+to get a quick feeling of how CMS looks now in Run 3.</p>
+<figure><img src="../fig/cmsdetector.png" style="width:100.0%" class="figure mx-auto d-block"></figure><p>Physics objects could be</p>
+<ul>
+<li>muons</li>
+<li>electrons</li>
+<li>jets</li>
+<li>photons</li>
+<li>taus</li>
+<li>missing transverse momentum</li>
+</ul>
+<p>In the <a href="https://opendata.cern.ch" class="external-link">CERN Open Portal</a> (CODP)
+site one can find a more detailed description of these physical objects
+and a list of them corresponding to <a href="https://opendata.cern.ch/docs/cms-physics-objects-2010" class="external-link">2010</a>,
+<a href="https://opendata.cern.ch/docs/cms-physics-objects-2011" class="external-link">2011/2012</a>,
+and <a href="https://opendata.cern.ch/docs/cms-physics-objects-2015" class="external-link">2015/2016</a>
+releases of open data.</p>
+<p>In this workshop we will focus on working with open data from the
+<strong>latest 2016 release</strong> from Run 2. This release included
+the <a href="https://opendata.cern.ch/docs/cms-getting-started-nanoaod" class="external-link">NanoAOD
+file format</a> that contains the most commonly used physics object
+information in a standard ROOT tree.</p>
+</section><section id="physics-objects-reconstruction"><h2 class="section-heading">Physics Objects reconstruction<a class="anchor" aria-label="anchor" href="#physics-objects-reconstruction"></a>
+</h2>
+<hr class="half-width">
+<p>Physics objects are mainly <strong>reconstructed</strong> using
+methods like clustering and linking parts of a CMS subsystem to parts of
+other CMS subsystems. For instance, electromagnetic objects (electrons
+or photons) are reconstructed by the linking of tracks with ECAL energy
+deposits.</p>
+<figure><img src="../fig/cmsslice.png" style="width:100.0%" class="figure mx-auto d-block"></figure><p>These actions are essential parts of the so-called <strong>Particle
+Flow</strong> (PF) algorithm.</p>
+<figure><img src="../fig/pflow.png" style="width:100.0%" class="figure mx-auto d-block"></figure><p>The <strong>particle-flow (PF) algorithm</strong> aims at
+reconstructing and identifying all stable particles in the event, i.e.,
+electrons, muons, photons, charged hadrons and neutral hadrons, with a
+thorough combination of all CMS sub-detectors towards an optimal
+determination of their direction, energy and type. This <strong>list of
+individual particles is then used</strong>, as if it came from a
+Monte-Carlo event generator, to build jets (from which the quark and
+gluon energies and directions are inferred), to determine the missing
+transverse energy (which gives an estimate of the direction and energy
+of the neutrinos and other invisible particles), to reconstruct and
+identify taus from their decay products and more.</p>
+<p>The PF algorithm and all its reconstruction tributaries are written
+in C++ and are part of the <strong>CMSSW</strong> software that is
+required to analyze any open data in the earlier AOD or MiniAOD formats.
+For more information about the PF algorithm you can visit a lesson from
+an earlier workshop: <a href="https://cms-opendata-workshop.github.io/workshop2023-advobjects/" class="external-link">Advanced
+Tools lesson</a>. The CMS open data from 2016 contains some data samples
+in the NanoAOD format that have been supplemented with particle flow
+information: <a href="https://opendata.cern.ch/search?q=&amp;f=experiment%3ACMS&amp;f=file_type%3Ananoaod-pf" class="external-link">nanoad-pf
+samples</a>.</p>
+<p>{% include links.md %}</p>
+<!-- 
+Place links that you need to refer to multiple times across pages here. Delete
+any links that you are not going to use. 
+ -->
+</section></section><section id="aio-02-electrons"><p>Content from <a href="02-electrons.html">Electrons</a></p>
+<hr>
+<p>Last updated on 2024-07-03 |
+        
+        <a href="https://github.com/cms-opendata-workshop/workbench-template-md/edit/main/episodes/02-electrons.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+<p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 40 minutes</p>
+<div class="text-end">
+          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
+        </div>
+<div class="overview card">
+<h2 class="card-header">Overview</h2>
+<div class="row g-0">
+<div class="col-md-4">
+<div class="card-body">
+<div class="inner">
+<h3 class="card-title">Questions</h3>
+<ul>
+<li>What are electromagnetic objects</li>
+<li>How are electrons treated in CMS?</li>
+<li>What variables are available in NanoAOD?</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-md-8">
+<div class="card-body">
+<div class="inner bordered">
+<h3 class="card-title">Objectives</h3>
+<ul>
+<li>Understand what electromagnetic objects are in CMS</li>
+<li>Learn electron member functions for common track-based
+quantities</li>
+<li>Learn variables for identification and isolation of electrons</li>
+<li>Learn variables for electron detector-related quantities</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="prerequisites" class="callout prereq">
+<div class="callout-square">
+<i class="callout-icon" data-feather="check"></i>
+</div>
+<div id="prerequisites" class="callout-inner">
+<h3 class="callout-title">Prerequisites<a class="anchor" aria-label="anchor" href="#prerequisites"></a>
+</h3>
+<div class="callout-content">
+<p>We will be making some plots in the ROOT Docker container,
+<code>my_root</code>.</p>
+</div>
+</div>
+</div>
+<section id="motivation"><h2 class="section-heading">Motivation<a class="anchor" aria-label="anchor" href="#motivation"></a>
+</h2>
+<hr class="half-width">
+<p>In the middle of the workshop we will be working on the main
+activity, which is to attempt to replicate a <a href="https://link.springer.com/content/pdf/10.1007/JHEP09(2017)051.pdf" class="external-link">CMS
+physics analysis</a> in a simplified way using modern analysis tools.
+The final state that we will be looking at contains electrons, muons and
+jets. We are using these objects as examples to review the way in which
+we extract physics objects information.</p>
+<p>The analysis requires some special variables, which we will need to
+identify in our Open Data NanoAOD files.</p>
+</section><section id="electromagnetic-objects"><h2 class="section-heading">Electromagnetic objects<a class="anchor" aria-label="anchor" href="#electromagnetic-objects"></a>
+</h2>
+<hr class="half-width">
+<p>We call photons and electrons <strong>electromagnetic
+particles</strong> because they leave most of their energy in the
+electromagnetic calorimeter (<strong>ECAL</strong>) so they share many
+common properties and functions</p>
+<p>Many of the different hypothetical exotic particles are unstable and
+<strong>can transform, or <em>decay</em>, into electrons</strong>,
+photons, or both. Electrons and photons are also standard tools to
+measure better and understand the properties of already known particles.
+For example, one way to find a Higgs Boson is by looking for signs of
+two photons, or four electrons in the debris of high energy collisions.
+Because electrons and photons are crucial in so many different
+scenarios, the physicists in the CMS collaboration make sure to do their
+best to reconstruct and identify these objects.</p>
+<figure><img src="../fig/brem.gif" style="width:50.0%" class="figure mx-auto d-block"></figure><p>As depicted in the figure above, tracks – from the pixel and silicon
+tracker systems – as well as ECAL energy deposits are used to
+<strong>identify</strong> the passage of electrons in CMS. Being
+charged, electron trajectories <strong>curve</strong> inside the CMS
+magnetic field. Photons are similar objects but with no tracks.
+Sophisticated algorithms are run in the <strong>reconstruction</strong>
+to take into account subtleties related to the identification of an
+electromagnetic particle. An example is the convoluted
+<strong>showering</strong> of sub-photons and sub-electrons that can
+reach the ECAL due to <em>bremsstrahlung</em> and <em>photon
+conversions</em>.</p>
+<p>We measure momentum and energy but also other properties of these
+objects that help analysts understand better their quality and
+origin.</p>
+</section><section id="electron-variables-in-nanoaod"><h2 class="section-heading">Electron variables in NanoAOD<a class="anchor" aria-label="anchor" href="#electron-variables-in-nanoaod"></a>
+</h2>
+<hr class="half-width">
+<p>In the pre-exercises, you learned how to find NanoAOD datasets on the
+Open Data Portal. One example is the <a href="https://opendata.cern.ch/record/30562" class="external-link">SingleElectron dataset</a>.
+The “Dataset Semantics” section has a link to the <a href="https://opendata.cern.ch/eos/opendata/cms/dataset-semantics/NanoAOD/30562/SingleElectron_doc.html" class="external-link">variable
+list webpage</a>. Each “collection” of objects in the NanoAOD file is
+linked by a common naming scheme (ex: <code>Electron_*</code>). The
+individual variables are shown in a table that includes the branch name,
+the data type, and a brief descriptive comment.</p>
+<div id="keypoints1" class="callout keypoints">
+<div class="callout-square">
+<i class="callout-icon" data-feather="key"></i>
+</div>
+<div class="callout-inner">
+<h3 class="callout-title">Key Points<a class="anchor" aria-label="anchor" href="#keypoints1"></a>
+</h3>
+<div class="callout-content">
+<ul>
+<li>Quantities such as impact parameters and charge have common member
+functions.</li>
+<li>Physics objects in CMS are reconstructed from detector signals and
+are never 100% certain!</li>
+<li>Identification and isolation algorithms are important for reducing
+fake objects.</li>
 </ul>
 </div>
 </div>
@@ -543,9 +621,9 @@ any links that you are not going to use.
   "creativeWorkStatus": "active",
   "url": "https://cms-opendata-workshop.github.io/workbench-template-md/instructor/aio.html",
   "identifier": "https://cms-opendata-workshop.github.io/workbench-template-md/instructor/aio.html",
-  "dateCreated": "2024-07-02",
-  "dateModified": "2024-07-02",
-  "datePublished": "2024-07-02"
+  "dateCreated": "2024-07-29",
+  "dateModified": "2024-07-03",
+  "datePublished": "2024-07-03"
 }
 
   </script><script>

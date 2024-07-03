@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<title>Lesson Title: Key Points</title>
+<title>CMS Physics Objects: Key Points</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="assets/themetoggle.js"></script><link rel="stylesheet" type="text/css" href="assets/styles.css">
 <script src="assets/scripts.js" type="text/javascript"></script><!-- mathjax --><script type="text/x-mathjax-config">
@@ -34,13 +34,13 @@
   <div class="container-fluid top-nav-container">
     <div class="col-md-8">
       <div class="large-logo">
-        <img id="dpoa-logo" alt="CMS DPOA logo" src="assets/images/dpoa-logo.png"><span class="badge text-bg-danger">
-          <abbr title="This lesson is in the pre-alpha phase, which means that it is in early development, but has not yet been taught.">
-            <a href="https://cdh.carpentries.org/the-lesson-life-cycle.html#early-development-pre-alpha-through-alpha" class="external-link alert-link">
-              <i aria-hidden="true" class="icon" data-feather="alert-octagon" style="border-radius: 5px"></i>
-              Pre-Alpha
+        <img id="dpoa-logo" alt="CMS DPOA logo" src="assets/images/dpoa-logo.png"><span class="badge text-bg-info">
+          <abbr title="This lesson is in the beta phase, which means that it is ready for teaching by instructors outside of the original author team.">
+            <a href="https://cdh.carpentries.org/the-lesson-life-cycle.html#polishing-beta-stage" class="external-link alert-link">
+              <i aria-hidden="true" class="icon" data-feather="alert-circle" style="border-radius: 5px"></i>
+              Beta
             </a>
-            <span class="visually-hidden">This lesson is in the pre-alpha phase, which means that it is in early development, but has not yet been taught.</span>
+            <span class="visually-hidden">This lesson is in the beta phase, which means that it is ready for teaching by instructors outside of the original author team.</span>
           </abbr>
         </span>
         
@@ -94,7 +94,7 @@
       <img class="small-logo" alt="CMS DPOA small logo" src="assets/images/dpoa-logo-sm.png">
 </div>
     <div class="lesson-title-md">
-      Lesson Title
+      CMS Physics Objects
     </div>
     <div class="search-icon-sm">
       <!-- TODO: do not show until we have search
@@ -105,7 +105,7 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 <li class="nav-item">
           <span class="lesson-title">
-            Lesson Title
+            CMS Physics Objects
           </span>
         </li>
         <li class="nav-item">
@@ -122,7 +122,7 @@
             More <i data-feather="chevron-down"></i>
           </button>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-<li><a class="dropdown-item" href="reference.html">Reference</a></li>
+<li><a class="dropdown-item" href="reference.html">Glossary</a></li>
           </ul>
 </li>
       </ul>
@@ -141,7 +141,7 @@
   </div>
 <!--/div.container-fluid -->
 </nav><div class="col-md-12 mobile-title">
-  Lesson Title
+  CMS Physics Objects
 </div>
 
 <aside class="col-md-12 lesson-progress"><div style="width: %" class="percentage">
@@ -243,7 +243,19 @@
 <div class="accordion accordion-flush" id="accordionFlush2">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading2">
-        <a href="introduction.html">1. Using Markdown</a>
+        <a href="01-introduction.html">1. Intro to CMS Physics Objects</a>
+    </div>
+<!--/div.accordion-header-->
+        
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush3">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading3">
+        <a href="02-electrons.html">2. Electrons</a>
     </div>
 <!--/div.accordion-header-->
         
@@ -276,7 +288,7 @@
                       <li>
                         <a href="profiles.html">Learner Profiles</a>
                       </li>
-                      <li><a href="reference.html">Reference</a></li>
+                      <li><a href="reference.html">Glossary</a></li>
                     </ul>
 </div>
                 </div>
@@ -306,17 +318,22 @@
     <main id="main-content" class="main-content"><div class="container lesson-content">
         
         
-<section id="introduction"><h2 class="section-heading"><a href="introduction.html">Using Markdown</a></h2>
+<section id="01-introduction"><h2 class="section-heading"><a href="01-introduction.html">Intro to CMS Physics Objects</a></h2>
 <hr class="half-width">
 <ul>
-<li>Use <code>.md</code> files for episodes when you want static
-content</li>
-<li>Use <code>.Rmd</code> files for episodes when you need to generate
-output</li>
-<li>Run <code>sandpaper::check_lesson()</code> to identify any issues
-with your lesson</li>
-<li>Run <code>sandpaper::build_lesson()</code> to preview your lesson
-locally</li>
+<li>Physics objects are the final abstraction in the detector that can
+be associated to physical entities like particles.</li>
+<li>NanoAOD stores physics object properties as branches of a ROOT tree,
+linked by common name prefixes.</li>
+</ul></section><section id="02-electrons"><h2 class="section-heading"><a href="02-electrons.html">Electrons</a></h2>
+<hr class="half-width">
+<ul>
+<li>Quantities such as impact parameters and charge have common member
+functions.</li>
+<li>Physics objects in CMS are reconstructed from detector signals and
+are never 100% certain!</li>
+<li>Identification and isolation algorithms are important for reducing
+fake objects.</li>
 </ul></section>
 </div>
     </main>
@@ -364,9 +381,9 @@ locally</li>
   "creativeWorkStatus": "active",
   "url": "https://cms-opendata-workshop.github.io/workbench-template-md/key-points.html",
   "identifier": "https://cms-opendata-workshop.github.io/workbench-template-md/key-points.html",
-  "dateCreated": "2024-07-02",
-  "dateModified": "2024-07-02",
-  "datePublished": "2024-07-02"
+  "dateCreated": "2024-07-29",
+  "dateModified": "2024-07-03",
+  "datePublished": "2024-07-03"
 }
 
   </script><script>
