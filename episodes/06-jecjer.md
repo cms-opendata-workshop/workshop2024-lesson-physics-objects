@@ -60,6 +60,8 @@ Earlier editions of this workshop documented a long process of applying the appr
 
 ::::::::: callout
 
+## Application instructions coming soon!
+
 Sometimes, you may need to reapply the jet corrections in an analysis, perhaps after removing leptons from jets. Instructions and examples to perform this process with NanoAOD samples will be included in the CMS Open Data Guide later in 2024.
 
 ::::::::::
@@ -78,17 +80,19 @@ The JER uncertainty is evaluated by re-calculating the smearing factor using the
 
 The JES corrections are significant, far larger than the uncertainty itself. The first level of correction, for pileup removal, tends to reduce the momentum of the jet, as seen in the left figure below that compares corrected to uncorrected jets. The right figure shows a similar comparison for JER smearing -- this uncertainty is much smaller for the majority of jets!
 
-![](fig/jetPtUncorrCorrJEC_highstat.JPG){width="48%"} | ![](../assets/img/jetPtUncorrCorrJER_highstat.JPG){width="48%"}
+![](fig/jetPtUncorrCorrJEC_highstat.JPG){width="48%"} | ![](fig/jetPtUncorrCorrJER_highstat.JPG){width="48%"}
 
 It is useful to make the same comparisons for jets in the forward regions of the CMS detector, where tracking is not available. The left (right) figure below shows JES (JER) effects for jets with pseudorapidity greater than 3. 
 
-![](../assets/img/jetPtUncorrCorrJEC_forward.JPG){width="48%"} | ![](../assets/img/jetPtUncorrCorrJER_forward.JPG){width="48%"}
+![](fig/jetPtUncorrCorrJEC_forward.JPG){width="48%"} | ![](fig/jetPtUncorrCorrJER_forward.JPG){width="48%"}
 
 In the endcap region the uncertainty on the JER scale factor has become nearly 20%! So this uncertainty gains almost equal footing with JES.
 Many CMS analyses restrict themselves to studying jets in the "central" region of the detector, defined loosely by the tracker acceptance region of `abs(eta) < 2.4` precisely to
 avoid these larger JES and JER uncertainties.
 
 ::::::::: callout
+
+## Uncertainty instructions coming soon!
 
 Methods to evaluate JES and JER uncertainties for NanoAOD files will also be included in the CMS Open Data Guide later in 2024.
 
