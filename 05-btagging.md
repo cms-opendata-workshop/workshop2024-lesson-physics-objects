@@ -67,9 +67,10 @@ a "loose" working point will allow the highest mis-tagging rate, while a "tight"
 efficiency to reduce mis-tagging. The DeepCSV and DeepJet algorithms are supported by CMS for 2016 Open Data. 
 
 The supported working points for DeepCSV and DeepJet for the 2016 Open Data are:
-* Loose (10% misidentification rate): `Jet_btagDeepB` > 0.1918 , `Jet_btagDeepFlav` > 0.0480
-* Medium (1% misidentification rate): `Jet_btagDeepB` > 0.5847, `Jet_btagDeepFlav` > 0.2489
-* Tight (0.1% misidentification rate): `Jet_btagDeepB` > 0.8767, `Jet_btagDeepFlav` > 0.6377
+
+ * Loose (10% misidentification rate): `Jet_btagDeepB` > 0.1918 , `Jet_btagDeepFlav` > 0.0480
+ * Medium (1% misidentification rate): `Jet_btagDeepB` > 0.5847, `Jet_btagDeepFlav` > 0.2489
+ * Tight (0.1% misidentification rate): `Jet_btagDeepB` > 0.8767, `Jet_btagDeepFlav` > 0.6377
 
 The figure below shows the relationship between b jet efficiency and working point in DeepCSV and DeepJet:
 
@@ -89,13 +90,13 @@ The mass of a jet is evaluated by summing the energy-momentum four-vectors of al
 
 The "softdrop" mass is included in NanoAOD for large-radius jets. In the "softdrop" procedure, jets are recursively de-clustered, and at each step jets that are too soft or at large angles are discarded. The following image shows the relationship between FatJet momentum, mass, and jet radius. As the momentum increases, jets of larger mass become contained within the FatJet. While W bosons can be observed from 200 GeV, top quarks require a higher momentum threshold.
 
-![](fig/MassVsPt.PNG)
+![](fig/MassVsPt.PNG){width="60%"}
 
 The internal structure of a jet can be probed using many observables: [N-subjettiness](https://arxiv.org/abs/1011.2268?context=hep-ph), energy correlation functions, and others. In CMS, N-subjettiness is the default jet substructure variable for identifying boosted particle decays.
 
 The "tau" variables of N-subjettiness, defined below, are jet shape variables whose value approaches 0 for jets having N or fewer subjets:
 
-![](fig/Nsubjettiness.PNG)
+$\tau_{N} = \frac{\Sum^{n_{\mathrm{constituents}}}_{i=1} p_{\mathrm{T},i} \min{\Delta R_{1,i}, \Delta R_{2,i}, \ldots, \Delta R_{N,i}}}{\Sum^{n_{\mathrm{constituents}}}_{i=1} p_{T,i}R}$
 
 If the value approaches zero it indicates that the consitituents all lie near one of the previously identified subjet axes. For a top quark jet with 3 subjets, we would expect small tau values for N = 3, 4, 5, 6, etc, but larger values for N = 1 or 2. Ratios of tau values provide the best discrimination for jets with a specific number of subjets. For two-prong jets like W, Z, or H boson decays, we study the ratio tau_2 / tau_1. For three-prong jets we study tau_3 / tau_2. 
 
@@ -110,7 +111,7 @@ Finally, NanoAOD contains some energy correlation function information for large
 
 Groomed mass, jet substructure, and subjet b-tagging were the backbone of early boosted jet identification in CMS. The figure below shows an example of isolating top quark jets by applying various mass and substructure criteria. However, these algorithms have now been eclipsed by deep neural network identification techniques.
 
-![](fig/SoftdropPeaks.PNG)
+![](fig/SoftdropPeaks.PNG){width="60%"}
 
 Table: FatJet branches for traditional jet substructure
 
@@ -202,9 +203,9 @@ For large-radius jet tagging, scale factors are computed for specific boosted pa
 
 ::::::::::::::: callout
 
-## Scale factor application instructions are coming soon! (within 2024!)
+## Spplication instructions coming soon!
 
-The [CMS Open Data Guide](https://cms-opendata-guide.web.cern.ch/) will host the scale factor data files and application instructions for 2015 and 2016 Open Data.
+The [CMS Open Data Guide](https://cms-opendata-guide.web.cern.ch/) will include the scale factor data files and application instructions for 2015 and 2016 Open Data.
 
 :::::::::::::::
 
