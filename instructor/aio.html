@@ -598,7 +598,7 @@ the data type, and a brief descriptive comment.</p>
   Electron collection contents
   </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
 <div class="accordion-body">
 <table class="table">
 <caption>NanoAOD electron branches</caption>
@@ -1303,7 +1303,7 @@ and isolation information available in NanoAOD</p>
   Photon collection contents
   </h3>
 </button>
-<div id="collapseSpoiler2" class="accordion-collapse collapse" aria-labelledby="headingSpoiler2" data-bs-parent="#accordionSpoiler2">
+<div id="collapseSpoiler2" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler2" aria-labelledby="headingSpoiler2">
 <div class="accordion-body">
 <table class="table">
 <caption>photon collection branches</caption>
@@ -1588,7 +1588,7 @@ in the previous episode to look at the Muon NanoAOD branches.</p>
   Muon collection branches
   </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
 <div class="accordion-body">
 <table class="table">
 <caption>NanoAOD muon collection variables</caption>
@@ -2240,7 +2240,7 @@ clusters.</p>
   Tau collection branches
   </h3>
 </button>
-<div id="collapseSpoiler2" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler2" aria-labelledby="headingSpoiler2">
+<div id="collapseSpoiler2" class="accordion-collapse collapse" aria-labelledby="headingSpoiler2" data-bs-parent="#accordionSpoiler2">
 <div class="accordion-body">
 <table class="table">
 <caption>Tau collection branches</caption>
@@ -2641,7 +2641,7 @@ collection in NanoAOD:</p>
   Jet collection branches
   </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
 <div class="accordion-body">
 <table class="table">
 <caption>Jet collection branches</caption>
@@ -3002,7 +3002,7 @@ in NanoAOD:</p>
   FatJet collection branches
   </h3>
 </button>
-<div id="collapseSpoiler2" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler2" aria-labelledby="headingSpoiler2">
+<div id="collapseSpoiler2" class="accordion-collapse collapse" aria-labelledby="headingSpoiler2" data-bs-parent="#accordionSpoiler2">
 <div class="accordion-body">
 <table class="table">
 <caption>Jet collection branches</caption>
@@ -3590,13 +3590,15 @@ allow the highest mis-tagging rate, while a “tight” working point will
 sacrifice some correct-tag efficiency to reduce mis-tagging. The DeepCSV
 and DeepJet algorithms are supported by CMS for 2016 Open Data.</p>
 <p>The supported working points for DeepCSV and DeepJet for the 2016
-Open Data are: * Loose (10% misidentification rate):
-<code>Jet_btagDeepB</code> &gt; 0.1918 , <code>Jet_btagDeepFlav</code>
-&gt; 0.0480 * Medium (1% misidentification rate):
-<code>Jet_btagDeepB</code> &gt; 0.5847, <code>Jet_btagDeepFlav</code>
-&gt; 0.2489 * Tight (0.1% misidentification rate):
-<code>Jet_btagDeepB</code> &gt; 0.8767, <code>Jet_btagDeepFlav</code>
-&gt; 0.6377</p>
+Open Data are:</p>
+<ul>
+<li>Loose (10% misidentification rate): <code>Jet_btagDeepB</code> &gt;
+0.1918 , <code>Jet_btagDeepFlav</code> &gt; 0.0480</li>
+<li>Medium (1% misidentification rate): <code>Jet_btagDeepB</code> &gt;
+0.5847, <code>Jet_btagDeepFlav</code> &gt; 0.2489</li>
+<li>Tight (0.1% misidentification rate): <code>Jet_btagDeepB</code> &gt;
+0.8767, <code>Jet_btagDeepFlav</code> &gt; 0.6377</li>
+</ul>
 <p>The figure below shows the relationship between b jet efficiency and
 working point in DeepCSV and DeepJet:</p>
 <figure><img src="../fig/DeepB_effVsPt.PNG" alt="Figure from the DeepJet paper" class="figure mx-auto d-block"><div class="figcaption">Figure from the <a href="https://arxiv.org/pdf/2008.10519" class="external-link">DeepJet paper</a>
@@ -3641,7 +3643,7 @@ following image shows the relationship between FatJet momentum, mass,
 and jet radius. As the momentum increases, jets of larger mass become
 contained within the FatJet. While W bosons can be observed from 200
 GeV, top quarks require a higher momentum threshold.</p>
-<figure><img src="../fig/MassVsPt.PNG" class="figure mx-auto d-block"></figure><p>The internal structure of a jet can be probed using many observables:
+<figure><img src="../fig/MassVsPt.PNG" style="width:60.0%" class="figure mx-auto d-block"></figure><p>The internal structure of a jet can be probed using many observables:
 <a href="https://arxiv.org/abs/1011.2268?context=hep-ph" class="external-link">N-subjettiness</a>,
 energy correlation functions, and others. In CMS, N-subjettiness is the
 default jet substructure variable for identifying boosted particle
@@ -3649,7 +3651,11 @@ decays.</p>
 <p>The “tau” variables of N-subjettiness, defined below, are jet shape
 variables whose value approaches 0 for jets having N or fewer
 subjets:</p>
-<figure><img src="../fig/Nsubjettiness.PNG" class="figure mx-auto d-block"></figure><p>If the value approaches zero it indicates that the consitituents all
+<p><span class="math inline">\(\tau_{N} =
+\frac{\Sum^{n_{\mathrm{constituents}}}_{i=1} p_{\mathrm{T},i}
+\min{\Delta R_{1,i}, \Delta R_{2,i}, \ldots, \Delta
+R_{N,i}}}{\Sum^{n_{\mathrm{constituents}}}_{i=1} p_{T,i}R}\)</span></p>
+<p>If the value approaches zero it indicates that the consitituents all
 lie near one of the previously identified subjet axes. For a top quark
 jet with 3 subjets, we would expect small tau values for N = 3, 4, 5, 6,
 etc, but larger values for N = 1 or 2. Ratios of tau values provide the
@@ -3680,7 +3686,7 @@ backbone of early boosted jet identification in CMS. The figure below
 shows an example of isolating top quark jets by applying various mass
 and substructure criteria. However, these algorithms have now been
 eclipsed by deep neural network identification techniques.</p>
-<figure><img src="../fig/SoftdropPeaks.PNG" class="figure mx-auto d-block"></figure><table class="table">
+<figure><img src="../fig/SoftdropPeaks.PNG" style="width:60.0%" class="figure mx-auto d-block"></figure><table class="table">
 <caption>FatJet branches for traditional jet substructure</caption>
 <thead><tr class="header">
 <th>Object property</th>
@@ -4001,16 +4007,16 @@ from the</p>
 <p>For large-radius jet tagging, scale factors are computed for specific
 boosted particle flavors and can be applied using similar methods as for
 b tagging.</p>
-<div id="scale-factor-application-instructions-are-coming-soon-within-2024" class="callout">
+<div id="spplication-instructions-coming-soon" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div id="scale-factor-application-instructions-are-coming-soon-within-2024" class="callout-inner">
-<h3 class="callout-title">Scale factor application instructions are coming soon! (within 2024!)<a class="anchor" aria-label="anchor" href="#scale-factor-application-instructions-are-coming-soon-within-2024"></a>
+<div id="spplication-instructions-coming-soon" class="callout-inner">
+<h3 class="callout-title">Spplication instructions coming soon!<a class="anchor" aria-label="anchor" href="#spplication-instructions-coming-soon"></a>
 </h3>
 <div class="callout-content">
 <p>The <a href="https://cms-opendata-guide.web.cern.ch/" class="external-link">CMS Open Data
-Guide</a> will host the scale factor data files and application
+Guide</a> will include the scale factor data files and application
 instructions for 2015 and 2016 Open Data.</p>
 </div>
 </div>
@@ -4144,12 +4150,12 @@ scale factor (if no generated jet is found).</p>
 applying the appropriate corrections to MiniAOD Open Data for 2015! The
 2016 Open Data samples are “Ultra Legacy”, and an appropriate set of
 corrections have already been applied to the jets.</p>
-<div id="callout1" class="callout">
+<div id="application-instructions-coming-soon" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div class="callout-inner">
-<h3 class="callout-title">Callout<a class="anchor" aria-label="anchor" href="#callout1"></a>
+<div id="application-instructions-coming-soon" class="callout-inner">
+<h3 class="callout-title">Application instructions coming soon!<a class="anchor" aria-label="anchor" href="#application-instructions-coming-soon"></a>
 </h3>
 <div class="callout-content">
 <p>Sometimes, you may need to reapply the jet corrections in an
@@ -4188,24 +4194,25 @@ compares corrected to uncorrected jets. The right figure shows a similar
 comparison for JER smearing – this uncertainty is much smaller for the
 majority of jets!</p>
 <p><img src="../fig/jetPtUncorrCorrJEC_highstat.JPG" style="width:48.0%" class="figure">
-| <img src="../assets/img/jetPtUncorrCorrJER_highstat.JPG" style="width:48.0%" class="figure"></p>
+| <img src="../fig/jetPtUncorrCorrJER_highstat.JPG" style="width:48.0%" class="figure"></p>
 <p>It is useful to make the same comparisons for jets in the forward
 regions of the CMS detector, where tracking is not available. The left
 (right) figure below shows JES (JER) effects for jets with
 pseudorapidity greater than 3.</p>
-<p><img src="../assets/img/jetPtUncorrCorrJEC_forward.JPG" style="width:48.0%" class="figure"> | <img src="../assets/img/jetPtUncorrCorrJER_forward.JPG" style="width:48.0%" class="figure"></p>
+<p><img src="../fig/jetPtUncorrCorrJEC_forward.JPG" style="width:48.0%" class="figure">
+| <img src="../fig/jetPtUncorrCorrJER_forward.JPG" style="width:48.0%" class="figure"></p>
 <p>In the endcap region the uncertainty on the JER scale factor has
 become nearly 20%! So this uncertainty gains almost equal footing with
 JES. Many CMS analyses restrict themselves to studying jets in the
 “central” region of the detector, defined loosely by the tracker
 acceptance region of <code>abs(eta) &lt; 2.4</code> precisely to avoid
 these larger JES and JER uncertainties.</p>
-<div id="callout2" class="callout">
+<div id="uncertainty-instructions-coming-soon" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div class="callout-inner">
-<h3 class="callout-title">Callout<a class="anchor" aria-label="anchor" href="#callout2"></a>
+<div id="uncertainty-instructions-coming-soon" class="callout-inner">
+<h3 class="callout-title">Uncertainty instructions coming soon!<a class="anchor" aria-label="anchor" href="#uncertainty-instructions-coming-soon"></a>
 </h3>
 <div class="callout-content">
 <p>Methods to evaluate JES and JER uncertainties for NanoAOD files will
