@@ -1,7 +1,7 @@
 ---
 title: "Jet flavor tagging"
-teaching: 0 (15 min)
-exercises:
+teaching: 20
+exercises: 0
 ---
 
 ::::::::::: questions
@@ -13,14 +13,6 @@ exercises:
 - Understand the basics of heavy flavor tagging
 - Learn to access tagging information in NanoAOD files
 :::::::::::
-
-::::::::::::: prereq
-
-## Prerequisites
-
-To make the plots in this section, enter your `my_root` docker container.
-
-:::::::::::::
 
 Jet reconstruction and identification is an important part of the analyses at the LHC. A jet may contain
 the hadronization products of any quark or gluon, or possibly the decay products of more massive particles such as W or Higgs bosons.
@@ -85,7 +77,40 @@ The figure below shows the relationship between b jet efficiency and working poi
 
 ## FatJet tagging algorithms
 
-FIXME SAY WORDS HERE
+Jets can originate from many different types of particles. The figure below gives an example of how different "parent particles" can influence the internal structure of a jet. Observables related to the **mass** and **internal structure** of a jet can help us design algorithms to distinguish between sources. The most common type of algorithm identifies **b quark jets** from light quark or gluon jets. The POET contains all the tools you need to evaluate the default CMS b tagging discriminants on small-radius jets. See the next episode for more information. In this lesson we will focus on tools to identify hadronic decays of Lorentz-boosed massive SM particles within large-radius jets.
+
+![](fig/JetTypes.PNG){width="100%"}
+
+### Groomed mass and substructure 
+
+The mass of a jet is evaluated by summing the energy-momentum four-vectors of all the particle flow candidates that make up the jet and computing the mass of the resulting object. This mass calculation is distorted by the low-momentum and wide-angle gluon radiation emerging from the initial hadrons that formed the jet. For example, the masses of light quark or gluon jets are measured to be much larger than the actual masses of these particles -- typically 10--50 GeV with a smooth continuum to higher values. **Grooming** procedures can help reduce the impact of this radiation and bring the jet mass closer to the true values of the parent particles. Grooming algorithms typically cluster the jet's consitituents into "subjets", like those represented by the small circles in the figure below. The relationships between different subjets can then be tested to decide which to keep.
+
+![](fig/Subjet.PNG)
+
+The "softdrop" mass is included in NanoAOD for large-radius jets. In the "softdrop" procedure, jets are recursively de-clustered, and at each step jets that are too soft or at large angles are discarded. The following image shows the relationship between FatJet momentum, mass, and jet radius. As the momentum increases, jets of larger mass become contained within the FatJet. While W bosons can be observed from 200 GeV, top quarks require a higher momentum threshold.
+
+![](fig/MassVsPt.PNG)
+
+The internal structure of a jet can be probed using many observables: [N-subjettiness](https://arxiv.org/abs/1011.2268?context=hep-ph), energy correlation functions, and others. In CMS, N-subjettiness is the default jet substructure variable for identifying boosted particle decays.
+
+The "tau" variables of N-subjettiness, defined below, are jet shape variables whose value approaches 0 for jets having N or fewer subjets:
+
+![](fig/Nsubjettiness.PNG)
+
+If the value approaches zero it indicates that the consitituents all lie near one of the previously identified subjet axes. For a top quark jet with 3 subjets, we would expect small tau values for N = 3, 4, 5, 6, etc, but larger values for N = 1 or 2. Ratios of tau values provide the best discrimination for jets with a specific number of subjets. For two-prong jets like W, Z, or H boson decays, we study the ratio tau_2 / tau_1. For three-prong jets we study tau_3 / tau_2. 
+
+The figures below show the relevant tau ratios for W boson (left) and top quark (right) jets. The structure in the tau_2/tau_1 plot is very unique: W bosons pool at lower values of tau_2/tau_1, while top quarks (with more than 2 subjets) and light quarks (with only 1 subjet) pool at medium and higher values.
+In the tau_3/tau_2 plot, top quark jets have low values while both W boson and light quark jets are gathered near 1.
+
+![](fig/Wsubjettiness.PNG){width="48%"} | ![](fig/Tsubjettiness.PNG){width="48%"}
+
+For top quark or H boson decays, applying b tagging algorithms to the subjets of the large-radius jets gives another valuable substructure observable. The Combined Secondary Vertex v2 and the DeepCSV discriminants have been stored for the two subjets obtained from the soft drop algorithm in each large-radius jet. For simulation, we also store the generator-level flavor information for the subjet. You can explore the "Subjet" branches in NanoAOD [here](https://cms-nanoaod-integration.web.cern.ch/autoDoc/NanoAODv9/2018UL/doc_TTToSemiLeptonic_TuneCP5_13TeV-powheg-pythia8_RunIISummer20UL18NanoAODv9-106X_upgrade2018_realistic_v16_L1v1-v1.html#SubJet)
+
+Finally, NanoAOD contains some energy correlation function information for large-radius jets. The N2 and N3 functions are described in detail in a CMS paper on [boosted jet identification](https://arxiv.org/pdf/2004.08262). 
+
+Groomed mass, jet substructure, and subjet b-tagging were the backbone of early boosted jet identification in CMS. The figure below shows an example of isolating top quark jets by applying various mass and substructure criteria. However, these algorithms have now been eclipsed by deep neural network identification techniques.
+
+![](fig/SoftdropPeaks.PNG)
 
 Table: FatJet branches for traditional jet substructure
 
@@ -100,6 +125,18 @@ Table: FatJet branches for traditional jet substructure
 | FatJet_tau2 | Float_t | Nsubjettiness (2 axis) |
 | FatJet_tau3 | Float_t | Nsubjettiness (3 axis) |
 | FatJet_tau4 | Float_t | Nsubjettiness (4 axis) |
+
+### Deep Neural Network taggers
+
+During Run 2, CMS analysts developed many neural network identification schemes for large-radius jets. The best performers have been preserved in the version of NanoAOD available for Open Data. The main algorithms are:
+
+* DeepDoubleX (or ["double-b"](https://arxiv.org/pdf/2004.08262)): a Boosted Decision Tree optimized for decays of massive particles to a pair of b or c quarks.
+* DeepBoostedJet (or ["DeepAK8"](https://arxiv.org/pdf/2004.08262)): a Convolutional Neural Network combined with a dense network that uses particle-flow candidates and secondary vertices to determine the parent particle of the jet
+* [**ParticleNet**](https://cms-ml.github.io/documentation/inference/particlenet.html): a Dynamic Graph Convolutional Neural Network applied on "point cloud" data structures built from the particle-flow candidates within a jet.
+
+The deep network taggers provide discriminants for many different particle hypotheses. These are typically grouped into "binarized" discriminants intended to separate a particular massive particle (top, Higgs, etc) from light quark jets. Both DeepAK8 and ParticleNet offer "mass-decorrelated" discriminants, for which the network has been trained in such a way that jet mass is not part of the learning process. For analyses that use the jet mass distribution as a key sensitive variable, decorrelation helps maintain a smoothly falling light-quark jet mass distribution, with no artificial peak near the region of interest (eg, near 125 GeV for Higgs bosons, or new 170 GeV for top quarks).
+
+The branches available in NanoAOD for the deep network taggers are listed below.
 
 ::::::::::::::::::::::::::::: spoiler
 

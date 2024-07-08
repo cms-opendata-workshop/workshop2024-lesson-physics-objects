@@ -1,7 +1,7 @@
 ---
 title: "Intro to CMS Physics Objects"
-teaching: 20
-exercises: 40
+teaching: 5
+exercises: 0
 ---
 
 :::::::::::::::::::: questions

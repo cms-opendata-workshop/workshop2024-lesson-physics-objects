@@ -1,7 +1,7 @@
 ---
 title: "Electrons & Photons"
 teaching: 10
-exercises: 30
+exercises: 0
 ---
 
 :::::::: questions
