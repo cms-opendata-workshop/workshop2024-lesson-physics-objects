@@ -2080,8 +2080,10 @@ to vertices other than the primary vertex, is used to correct for pileup
 contamination in the total flux of neutrals found in the muon isolation
 cone. A factor of <span class="math inline">\(\beta = 0.5\)</span> is
 used to scale this contribution as:</p>
-<p>$ I_{} = <em>{R&lt;0.4} ( p</em>{T}^{ + (p_{T}^{} + p_{T}^{ -
-p_{T}^{} , 0) ) $</p>
+<p><span class="math inline">\(I_{\mu} = \frac{1}{p_{T}} \sum_{R&lt;0.4}
+\left( p_{T}^{\mathrm{charged\,hadrons}} + \max(p_{T}^{\mathrm{photons}}
++ p_{T}^{\mathrm{neutral\,hadrons}} - \beta
+p_{T}^{\mathrm{charged\,pileup}} , 0) \right)\)</span></p>
 <p>Many forms of muon isolation are stored in NanoAOD, as shown in the
 table. The primary particle-flow isolation variable is
 <code>Muon_pfIsoId</code>. Another type of isolation in common us is
@@ -2627,7 +2629,7 @@ collection in NanoAOD:</p>
   Jet collection branches
   </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
 <div class="accordion-body">
 <table class="table">
 <caption>Jet collection branches</caption>
@@ -2988,7 +2990,7 @@ in NanoAOD:</p>
   FatJet collection branches
   </h3>
 </button>
-<div id="collapseSpoiler2" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler2" aria-labelledby="headingSpoiler2">
+<div id="collapseSpoiler2" class="accordion-collapse collapse" aria-labelledby="headingSpoiler2" data-bs-parent="#accordionSpoiler2">
 <div class="accordion-body">
 <table class="table">
 <caption>Jet collection branches</caption>
@@ -3769,7 +3771,7 @@ listed below.</p>
   FatJet branches for deep network taggers
   </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
 <div class="accordion-body">
 <table class="table">
 <caption>FatJet branches for deep network taggers</caption>
