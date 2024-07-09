@@ -158,9 +158,7 @@ from pileup contributions to this con. The sum of the $p_{T}$ of the charged had
 than the primary vertex, is used to correct for pileup contamination in the total flux of neutrals found in the muon isolation cone. 
 A factor of $\beta = 0.5$ is used to scale this contribution as: 
 
-$
-I_{\mu} = \frac{1}{p_{T}}\cdot \displaystyle\Sigma_{R<0.4}\left[p_{T}^{ch}+{\rm max}(p_{T}^{\gamma}+p_{T}^{nh}-0.5\cdot p_{T}^{pu\ ch},0)\right]
-$
+$ I_{\mu} = \frac{1}{p_{T}} \sum_{R<0.4} \left( p_{T}^{\mathrm{charged\,hadrons} + \max(p_{T}^{\mathrm{photons}} + p_{T}^{\mathrm{neutral\,hadrons} - \beta p_{T}^{\mathrm{charged\,pileup}} , 0) \right) $
 
 Many forms of muon isolation are stored in NanoAOD, as shown in the table. The primary particle-flow isolation variable is `Muon_pfIsoId`. 
 Another type of isolation in common us is "mini"-isolation, `Muon_miniIsoId`, which adapts the size of the cone to improve efficiency for leptons that might
