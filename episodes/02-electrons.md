@@ -5,16 +5,20 @@ exercises: 0
 ---
 
 :::::::: questions
+
 - What are electromagnetic objects
 - How are electrons treated in CMS?
 - What variables are available in NanoAOD?
+
 ::::::::
 
 :::::::: objectives
+
 - Understand what electromagnetic objects are in CMS
 - Learn electron member functions for common track-based quantities
 - Learn variables for identification and isolation of electrons
 - Learn variables for electron detector-related quantities
+
 ::::::::
 
 
