@@ -5,13 +5,17 @@ exercises: 0
 ---
 
 ::::::::::: questions
+
 - How are b hadrons identified in CMS?
 - How are the parent particles of large-radius jets identified in CMS?
+
 :::::::::::
 
 ::::::::::: objectives
+
 - Understand the basics of heavy flavor tagging
 - Learn to access tagging information in NanoAOD files
+
 :::::::::::
 
 Jet reconstruction and identification is an important part of the analyses at the LHC. A jet may contain
@@ -210,8 +214,10 @@ The [CMS Open Data Guide](https://cms-opendata-guide.web.cern.ch/) will include 
 :::::::::::::::
 
 ::::::::::: keypoints
+
 - Tagging algorithms separate heavy flavor jets from jets produced by the hadronization of light quarks and gluons
 - FatJet tagging algorithms can identify jets from massive SM particles
 - Tagging algorithms produce a disriminator value for each jet that represents the likelihood that the jet came from a particular particle
 - Each tagging algorithm has recommended 'working points' (discriminator values) based on a misidentification probability for non-interesting jets
+
 :::::::::::

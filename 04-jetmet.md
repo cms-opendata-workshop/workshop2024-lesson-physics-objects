@@ -5,12 +5,16 @@ exercises: 0
 ---
 
 :::::::: questions
+
 - How are jets and missing transverse energy treated in CMS Open Data?
+
 ::::::::
 
 :::::::: objectives
+
 - Identify jet and MET code collections in AOD files
 - Understand typical features of jet/MET objects
+
 ::::::::
 
 After tracks and energy deposits in the CMS tracking detectors (inner, muon) and calorimeters (electromagnetic, hadronic) are reconstructed as particle flow candidates, an event can be interpreted in various ways. Two common elements of event interpretation are **clustering jets** and calculating **missing transverse momentum**.
@@ -256,8 +260,10 @@ uncertainties are required to compute the significance of the MET signature. MET
 a physics object is likely to arise from mismeasurement and should not have a large significance. 
 
 :::::::: keypoints
+
 - Jets are spatially-grouped collections of particles that traversed the CMS detector
 - Particles from additional proton-proton collisions (pileup) must be removed from jets
 - Missing transverse energy is the negative vector sum of particle candidates
 - Many of the variables discussed for other objects also exist for jets
+
 ::::::::

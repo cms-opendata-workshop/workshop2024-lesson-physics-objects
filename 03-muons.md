@@ -5,14 +5,18 @@ exercises: 0
 ---
 
 :::::::: questions
+
 - How are muons reconstructed in CMS?
 - How are muons treated in CMS OpenData?
+
 ::::::::
 
 :::::::: objectives
+
 - Understand how muons are reconstructed in CMS
 - Learn variables for muon track-based quantities
 - Learn variables for identification and isolation of muons
+
 ::::::::
 
 ## Overview of muon reconstruction
@@ -264,8 +268,10 @@ Table: Tau identification variables
 Information about the tau lepton 4-vectors, cross-reference indices, impact parameters, etc, are analogous to the variables for electrons and muons. 
 
 :::::::: keypoints
+
 - Track access may differ, but track-related member functions are common across objects.
 - Physics objects in CMS are reconstructed from detector signals and are never 100% certain!
 - Muons typically use pre-configured identification and isolation variables"
+
 ::::::::
 

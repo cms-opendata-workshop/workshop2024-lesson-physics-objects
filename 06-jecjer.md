@@ -5,15 +5,19 @@ exercises: 0
 ---
 
 :::::::::::: questions
+
 - How are data/simulation differences dealt with for jet energy?
 - How do uncorrected and corrected jet momenta compare?
 - How large is the JES uncertainty in different regions?
 - How large is the JER uncertainty in different regions?
+
 ::::::::::::
 
 :::::::::::: objectives
+
 - Learn about typical differences in jet energy scale and resolution between data and simulation
 - Explore the JES and JER uncertainties using histograms
+
 ::::::::::::
 
 
@@ -99,6 +103,7 @@ Methods to evaluate JES and JER uncertainties for NanoAOD files will also be inc
 ::::::::::
 
 :::::::::::: keypoints
+
 - Jet energy corrections are factorized and account for many mismeasurement effects
 - L1+L2+L3 should be applied to jets used for analyses, with residual corrections for data
 - Jet energy resolution in simulation is typically too narrow and is smeared using scale factors
@@ -106,4 +111,5 @@ Methods to evaluate JES and JER uncertainties for NanoAOD files will also be inc
 - In general, the jet corrections are significant and lower the momenta of the jets with standard LHC pileup conditions
 - For most jets, the JES uncertainty dominates over the JER uncertainty
 - In the endcap region of the detector, the JER uncertainty in larger and matches the JES uncertainty
+
 ::::::::::::
