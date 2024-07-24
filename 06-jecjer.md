@@ -53,6 +53,7 @@ The figure below shows the result of the L1+L2+L3 corrections on the jet respons
 ## Jet Energy Resolution
 
 Jet Energy Resolution (JER) corrections are applied after JES on strictly MC simulations. Unlike JES, which adjusts the mean of the momentun response distribution, JER adjusts the width of the distribution. The ratio of reconstructed transverse momentum to true (generated) transverse momentum forms a Gaussian distributions -- the width of this Gaussian is the JER. In data, where no "true" pT is available, the JER is measured using photon/Z + jet events where the jet recoils against the photon or Z boson, both of which can be measured quite precisely in the CMS detector. The JER is typically smaller in simulation than in data, leading to scale factors that are larger than 1. These scale factors are applied using two methods:
+
  * [Adjusting the ratio](https://oaktrust.library.tamu.edu/handle/1969.1/173472) of reconstructed to generated momentum using the scale factor (if a well-matched generated jet is found),
  * Randomly smearing the momentum using a Gaussian distribution based on the resolution and scale factor (if no generated jet is found).
 
